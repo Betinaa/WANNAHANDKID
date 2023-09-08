@@ -1,13 +1,18 @@
 import StyledGlobal from '../src/styledGlobal';
-import Home from "./paginas/Home/Home";
+import Reproducao from './paginas/Reproducao/Reproducao';
+// import Home from "./paginas/Home/Home";
+// import Login from './paginas/Login/Login';
+// import Videos from './paginas/Videos/Videos';
 
 
 function App() {
   return (
     <>
     <StyledGlobal/>
-      <Home/>
- 
+      {/* <Home/> */}
+    {/* <Login/> */}
+      {/* <Videos/> */}
+      <Reproducao/>
     </>
   )
 }
