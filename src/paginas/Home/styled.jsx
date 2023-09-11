@@ -230,10 +230,10 @@ export const DivTitulo = styled.div`
     justify-content: center;
 `
 
-export const SectionCadastro = styled.section`
+export const SectionCadastro = styled.form`
 
 `
-export const DivFormulario = styled.div`
+export const DivFormulario = styled.form`
     margin-top: 8vh;
 
 `
@@ -357,7 +357,7 @@ export const SectionSujestoes = styled.section`
 
 export const H6Sujestoes = styled.h6`
     font-size: 22px;
-    margin-top:3vh;
+    margin-top:11vh;
     margin-left:6vw;
     
 `
@@ -379,7 +379,7 @@ export const DivTitulos= styled.div`
     display: flex;
     flex-direction: column; 
     position: relative;
-    background-color: #3cff00;
+    background-color: #ffffff;
 
 `
 

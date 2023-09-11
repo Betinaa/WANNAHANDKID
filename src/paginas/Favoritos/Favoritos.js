@@ -1,5 +1,5 @@
 import Header from "../../components/Header/Header"
-import { BodyContainer, SectionContainer, VideoCard  } from "./styled";
+import { BodyContainer, SectionContainer, VideoCard, FavoritoTitulo  } from "./styled";
 import imagemdesenho1 from "../../assets/imagemdesenho1.jpg"
 import imagemdesenho2 from "../../assets/imagemdesenho2.jpg"
 import imagemdesenho3 from "../../assets/imagemdesenho3.jpg"
@@ -20,11 +20,12 @@ import imagemdesenho17 from "../../assets/imagemdesenho17.jpg"
 import { Link } from "react-router-dom";
 
 
-function Videos() {
+function Favoritos() {
     return(
         <>
         <Header/>
         <BodyContainer>
+            <FavoritoTitulo>Favoritos</FavoritoTitulo>
             <SectionContainer>
                 <Link to='/reproducao'><VideoCard src={imagemdesenho1} alt="desenho1" /></Link>
                 <Link to='/reproducao'><VideoCard src={imagemdesenho2} alt="desenho2" /></Link>
@@ -50,4 +51,4 @@ function Videos() {
         </>
   );
 }  
-export default Videos;
+export default Favoritos;

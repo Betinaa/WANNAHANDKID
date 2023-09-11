@@ -2,7 +2,6 @@ import Header from "../../components/Header/Header"
 import { DivRight, DivLeft, BodyContainer, H1Container, H5Container, H5Container2, H5Container3, DivCard, SectionContainer, CaixaEmailContainer, Caixa, Button, ImgMeninaFrente, EnvelopeEmail, CaixaContainer, Caixa2, H1Container2, DivTitulo, SectionCadastro, DivFormulario, DivEnter, Button2, DivCheck, InputCheckBox, Label, DivLogin, H6Container1, ButtonLogin, H6Container3, SectionSujestoes, H6Sujestoes, DivCima, VideoCard, DivTitulos, H3Titulo, H5Classificacao } from './styled';
 import ImgMeninaFront from "../../assets/ImgMeninaFrente.jpg"
 import envelope from "../../assets/envelope.png"
-// import fototras from "../../assets/Fototras.png"
 import { useState } from 'react';
 import Modal from "../../components/Modal/Modal"
 import ModalLogin from "../../components/ModalLogin/ModalLogin"
@@ -15,8 +14,8 @@ import imagemdesenho6 from "../../assets/imagemdesenho6.jpg"
 import imagemdesenho7 from "../../assets/imagemdesenho7.jpg"
 import imagemdesenho8 from "../../assets/imagemdesenho8.jpg"
 import imagemdesenho9 from "../../assets/imagemdesenho9.jpg"
-// import { useNavigate } from "react-router-dom";
-// import axios from "axios";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 
 function Home() {
@@ -29,41 +28,39 @@ function Home() {
     setIsChecked(!isChecked);
   };
 
-  // const [email, setEmail] = useState('');
-  //   const [password, setPassword] = useState('');
-  
-  //   const navigate = useNavigate()
-  
-  //   const goToGraphicWeek = () => {
-  //     navigate('/Perfil')
-  //   }
-  
-  //   const hadleSubmit = (e) => {
-  //     e.preventDefault()
-  
-  //     const credentials = { email, password } 
-      
-  //     axios
-  //     .post('http://localhost:8000/login', credentials, {
-  //       headers: {
-  //         'Content-Type': 'application/json',
-  //       }
-  //     })
-  //     .then(response => {
-  //       alert(response.data.message)
-  //       goToGraphicWeek()
-  //     })
-  //     .catch(error => console.log(error))
-      
-  //   };
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
+  const navigate = useNavigate()
+
+  const goToPerfil = () => {
+    navigate('/perfil')
+  }
+
+  const hadleSubmit = (e) => {
+    e.preventDefault()
+
+    const credentials = { email, password } 
+    
+    axios
+    .post('http://localhost:8000/login', credentials, {
+      headers: {
+        'Content-Type': 'application/json',
+      }
+    })
+    .then(response => {
+      alert(response.data.message)
+      goToPerfil()
+    })
+    .catch(error => console.log(error))
+    
+  };
 
   return (
     <>
       <Header />
 
       <BodyContainer>
-      {/* <FotoTras src={fototras} alt="Fototras" /> */}
         <SectionContainer>
           <DivLeft>
 
@@ -90,25 +87,26 @@ function Home() {
                     </H1Container2>
                 </DivTitulo>
 
-                <DivFormulario>
+                <DivFormulario onSubmit={hadleSubmit}>
                 <Caixa2>
                   <CaixaContainer placeholder="Nome de Usuário"/>
                 </Caixa2>
                 <Caixa2>
-                  <CaixaContainer placeholder="E-mail"
-                                  // type="text"
-                                  // id="usuario"
-                                  // value={email}
-                                  // onChange = {(e) => setEmail(e.target.value)}
-                                  />
+                  <CaixaContainer 
+                            type="text"
+                            id="usuario"
+                            placeholder="Email"
+                            value={email}
+                            onChange = {(e) => setEmail(e.target.value)}
+                  />
                 </Caixa2>
                 <Caixa2>
-                  <CaixaContainer placeholder="Senha"
-                                  // type="password"
-                                  // id="senha"
-                                  // value={password} 
-                                  // onChange = {(e) => setPassword(e.target.value)} 
-                                  />
+                  <CaixaContainer                             
+                            type="password"
+                            id="senha"
+                            placeholder="Senha"
+                            value={password} 
+                            onChange = {(e) => setPassword(e.target.value)}/>
                 </Caixa2>
                 <Caixa2>
                   <CaixaContainer placeholder="Categoria" />
@@ -116,7 +114,6 @@ function Home() {
                 <Caixa2>
                   <CaixaContainer placeholder="Profissão" />
                 </Caixa2>
-                </DivFormulario>
 
                 <DivEnter>
                   <Button2 type="submit" id="submit"> Entrar </Button2>
@@ -131,6 +128,8 @@ function Home() {
                           />  Se lembre de mim
                         </Label>
                       </DivCheck>
+
+                  </DivFormulario>
 
               </SectionCadastro>
 
@@ -154,12 +153,21 @@ function Home() {
 
                 <DivFormulario>
                 <Caixa2>
-                  <CaixaContainer placeholder="Senha" />
+                  <CaixaContainer type="text"
+                            id="usuario"
+                            placeholder="Email"
+                            value={email}
+                            onChange = {(e) => setEmail(e.target.value)} />
                 </Caixa2>
                 <Caixa2>
-                  <CaixaContainer placeholder="Confirmar Senha" />
+                  <CaixaContainer   
+                            type="password"
+                            id="senha"
+                            placeholder="Senha"
+                            value={password} 
+                            onChange = {(e) => setPassword(e.target.value)}   
+                  />
                 </Caixa2>
-                </DivFormulario>
 
                 <DivEnter>
                   <Button2 type="submit" id="submit"> Entrar </Button2>
@@ -174,6 +182,8 @@ function Home() {
                           />  Esqueci minha senha
                         </Label>
                       </DivCheck>
+
+                  </DivFormulario>
 
               </SectionCadastro>
 
@@ -206,8 +216,8 @@ function Home() {
         <SectionSujestoes>
           <DivTitulos>
             <VideoCard src={imagemdesenho1} alt="desenho1" />
-            <H3Titulo>,jhvbuvukg</H3Titulo>
-            <H5Classificacao>lihbliy</H5Classificacao>
+            <H3Titulo></H3Titulo>
+            <H5Classificacao></H5Classificacao>
           </DivTitulos>
 
           <DivTitulos>

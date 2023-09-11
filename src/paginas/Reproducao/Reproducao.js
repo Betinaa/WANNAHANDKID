@@ -7,6 +7,7 @@ import imagemdesenho18 from "../../assets/imagemdesenho18.jpg"
 import iconeenviar from "../../assets/iconeenviar.png"
 import iconseta from "../../assets/iconseta.png"
 import { useState } from 'react';
+import { Link } from "react-router-dom";
 
 function Reproducao() {
         const [isChecked, setIsChecked] = useState(false);
@@ -19,7 +20,7 @@ function Reproducao() {
         <>
        <Header/>
        <BodyContainer>
-            <Voltar src={iconseta} alt="seta"/>
+            <Link to='/videos'><Voltar src={iconseta} alt="seta"/></Link>
        <SectionContainer>
             <DivLeftA>
 
@@ -151,4 +152,4 @@ function Reproducao() {
   );
 } 
  
-export default Reproducao
+export default Reproducao;
