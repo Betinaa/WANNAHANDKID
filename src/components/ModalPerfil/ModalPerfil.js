@@ -1,17 +1,15 @@
-import { DivContainer, DivCard, ImgLogo} from './styled';
-import fidodido from '../../assets/fidodido.png';
+import { DivContainer, DivCard, ButtonFundo} from './styled';
 
 
-
-function Modal({isOpen, children, setModalOpen}) {
+function ModalPerfil({isOpen, children, setModalPerfilOpen}) {
 
     if(isOpen) { 
         return (
             <>
             <DivContainer>
-                <ImgLogo src={fidodido} alt="Logo" onClick={setModalOpen}/>
                <DivCard> 
                 {children}
+                <ButtonFundo onClick={setModalPerfilOpen} />
                </DivCard>
             </DivContainer>
            </>
@@ -22,5 +20,5 @@ function Modal({isOpen, children, setModalOpen}) {
 
     }
     
-export default Modal;
+export default ModalPerfil;
 

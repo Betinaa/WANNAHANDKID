@@ -1,25 +1,98 @@
 import Header from "../../components/Header/Header"
-import { Iframe, DivCard, SectionContainer, DivText, DivVideo, DivLeftA,  BodyContainer, H5Card, DivDescricao, DivNota, H3Card } from "./styled";
-
+import { Video, DivCard, SectionContainer, DivText, DivVideo, DivLeftA,  BodyContainer, H5Card, DivDescricao, DivNota, H3Card, H6Comentario, DivTitulo,  DivParaComentar, DivNomePerfil, DivCategoria, FotoPerfil, DivComentario1, DivLeftComent, DivRightComent, DivComentario, DivComentario2, FotoDePerfil, DivFazerComentar, Caixa, IconEnviar, H4Classificacao, H4Criador, H4Nota, StarCheckboxInput, StarCheckboxLabel, DivAvaliacao, DivOverlay, Voltar} from "./styled";
+import FotoPerfil1 from "../../assets/FotoPerfil1.jpg"
+import FotoPerfil2 from "../../assets/FotoPerfil2.jpg"
+import FotoPerfil3 from "../../assets/FotoPerfil3.jpg"
+import imagemdesenho18 from "../../assets/imagemdesenho18.jpg"
+import iconeenviar from "../../assets/iconeenviar.png"
+import iconseta from "../../assets/iconseta.png"
+import { useState } from 'react';
 
 function Reproducao() {
+        const [isChecked, setIsChecked] = useState(false);
+      
+        const mudacheckbox = () => {
+          setIsChecked(!isChecked);
+    }
+
     return(
         <>
        <Header/>
        <BodyContainer>
+            <Voltar src={iconseta} alt="seta"/>
        <SectionContainer>
             <DivLeftA>
+
                 <DivVideo>
-                    <Iframe 
-                        src="https://www.youtube.com/embed/kNw8V_Fkw28" 
-                    ></Iframe>
+                    <Video src={imagemdesenho18} alt="FotoDesenho"/>
+                    <DivOverlay></DivOverlay>
                 </DivVideo>
 
                 <DivText>
                     <DivNota>
+                        <DivAvaliacao>
+                    <StarCheckboxInput
+                        type="checkbox"
+                        id="starCheckbox"
+                        checked={isChecked}
+                        onChange={mudacheckbox}/>
+                    <StarCheckboxLabel htmlFor="starCheckbox" checked={isChecked}>
+                        &#9733;
+                    </StarCheckboxLabel>
+
+                    <StarCheckboxInput
+                        type="checkbox"
+                        id="starCheckbox"
+                        checked={isChecked}
+                        onChange={mudacheckbox}/>
+                    <StarCheckboxLabel htmlFor="starCheckbox" checked={isChecked}>
+                        &#9733;
+                    </StarCheckboxLabel>
+
+                    <StarCheckboxInput
+                        type="checkbox"
+                        id="starCheckbox"
+                        checked={isChecked}
+                        onChange={mudacheckbox}/>
+                    <StarCheckboxLabel htmlFor="starCheckbox" checked={isChecked}>
+                        &#9733;
+                    </StarCheckboxLabel>
+
+                    <StarCheckboxInput
+                        type="checkbox"
+                        id="starCheckbox"
+                        checked={isChecked}
+                        onChange={mudacheckbox}/>
+                    <StarCheckboxLabel htmlFor="starCheckbox" checked={isChecked}>
+                        &#9733;
+                    </StarCheckboxLabel>
+
+                    <StarCheckboxInput
+                        type="checkbox"
+                        id="starCheckbox"
+                        checked={isChecked}
+                        onChange={mudacheckbox}/>
+                    <StarCheckboxLabel htmlFor="starCheckbox" checked={isChecked}>
+                        &#9733;
+                    </StarCheckboxLabel>
+                    </DivAvaliacao>
+
+
                         <H3Card>
                             TEM UM YETI NO MEU ARMÁRIO, MÃE
                         </H3Card>
+
+                        <H4Criador>
+                            Cristina Nascimento
+                        </H4Criador>
+
+                        <H4Classificacao>
+                            Perda / Animal  Companheiro
+                        </H4Classificacao>
+
+                        <H4Nota>
+                            4.5
+                        </H4Nota>
                     </DivNota>
 
                     <DivDescricao>
@@ -33,11 +106,49 @@ function Reproducao() {
                 </DivLeftA>
 
                 <DivCard>
-                    DIV CARD
+                    <DivTitulo>
+                        <H6Comentario> Comentários </H6Comentario> 
+                    </DivTitulo>
+
+                    <DivComentario1>
+                        <DivLeftComent>
+                           <FotoPerfil src={FotoPerfil1} alt="perfil1"/>
+                        </DivLeftComent>
+
+                        
+                        <DivRightComent>
+                            <DivNomePerfil>Cristina Ferreira</DivNomePerfil>
+                            <DivCategoria> Professora de Educação Infantil</DivCategoria>
+                            <DivComentario> Abordou bem a questão do medo muito comum, de ter um “monstro” no armário. Um amor de desenho!</DivComentario>
+                        </DivRightComent>
+                        </DivComentario1>
+                        
+                        <DivComentario2>
+                        <DivLeftComent>
+                           <FotoPerfil src={FotoPerfil2} alt="perfil2"/>
+                        </DivLeftComent>
+
+                        
+                        <DivRightComent>
+                            <DivNomePerfil>Ana  Santos </DivNomePerfil>
+                            <DivCategoria> Mãe </DivCategoria>
+                            <DivComentario> Aprovado!! Minha filha gostou muito! um amor de desenho! </DivComentario>
+                        </DivRightComent>
+                        </DivComentario2>
+
+                    <DivParaComentar>
+                           <FotoDePerfil src={FotoPerfil3} alt="perfil3"/>
+
+                           <DivFazerComentar>
+                                <Caixa placeholder="Adcionar comentário" />  
+                                <IconEnviar src={iconeenviar} alt="icone" />
+                           </DivFazerComentar>
+                    </DivParaComentar>
                 </DivCard>
        </SectionContainer>
        </BodyContainer>
         </>
   );
-}  
+} 
+ 
 export default Reproducao

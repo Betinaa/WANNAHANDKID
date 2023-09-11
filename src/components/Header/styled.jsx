@@ -6,12 +6,14 @@ export const HeaderContainer = styled.header`
     justify-content: space-between;
 `
 
-export const DivLeft = styled.div`
+export const DivButtonMenu = styled.button`
     display: flex;
     flex-direction: row;
     align-items: left; /* Centraliza verticalmente */
     justify-content: left; /* Centraliza horizontalmente */
     background-color: #FFFFFF;
+    cursor: pointer;
+    border: none;
 `
 
 export const DivLogo = styled.div`
@@ -27,6 +29,7 @@ export const ImgLogo = styled.img`
     width: 5vw;
     height: 6vh;
     margin-top: 3vh;
+    transform: rotate(363deg);
 `
 
 export const ImgMenu = styled.img`
@@ -34,7 +37,6 @@ export const ImgMenu = styled.img`
     height: 6vh;
     margin-left: 3vh;
     margin-top: 3vh;
-
 `
 
 export const DivButton = styled.div`

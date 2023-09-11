@@ -9,20 +9,24 @@ export const DivContainer = styled.div`
     background-color: #1d1d1f88;
     z-index: 1000;
 `
+export const ButtonFundo = styled.button`
+    background-color: transparent;
+    margin-left: 40vw;
+    height: 100vh;
+    width: 99vw;
+    border: none;
+
+`
 
 export const DivCard = styled.div`
     display: flex;
     flex-direction: column;
-    column-gap: 60vh;
-    /* margin-top: 0.1vh; */
-    margin-left: 31vw;
-    margin-right: 30vw;
-    height: 91vh;
-    padding: 28px 60px 60px 60px;
+    margin-right: 60vw;
+    height: 100vh;
     background-color: #ffffff;
-    border-radius:60px 60px 0px 0px;
+    border-radius:0px 0px 0px 0px;
     color: black;
-    /* transform: 'translate(-50%, -50%)'; */
+
 `
 
 export const DivFechar = styled.div`
