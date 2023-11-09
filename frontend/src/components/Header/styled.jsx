@@ -84,8 +84,9 @@ export const Profissao = styled.h5`
 
 
 export const ParteMeio = styled.div`
-
+    margin-left: 0.5vw;
 `
+
 export const Descricao = styled.div`
     display: flex;
     flex-direction: column;
@@ -98,7 +99,7 @@ export const Edicao = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin-left: 17vh;
+    margin-left: 9vh;
     margin-top: 19vh;
 
 `
@@ -122,9 +123,7 @@ export const Favoritos = styled.div`
 `
 
 export const Categoria = styled.h5`
-    display: flex;
-    flex-direction: row;
-    align-items: center; 
+    
 `
 
 export const Favoritado = styled.img`
@@ -135,17 +134,40 @@ export const Favoritado = styled.img`
 `
 
 export const FavoritosEstatico = styled.h5`
-    
+    display: flex;
+    border-style: none;
+    background-color: transparent;
+    font-family: 'Nunito', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    ::placeholder {
+        
+    }
+    margin-left: 2vw;
+    &:focus { 
+        outline: 0;
+    }
 `
 export const FavoritosFuncional = styled.h5`
     margin-left: 16.5vw;
 `
 
 export const NomeEstatico = styled.h5`
-    width: 4vw;
-    height: 4vh;
-    cursor: pointer;
-    font-size: 13px;
+    display: flex;
+    border-style: none;
+    background-color: transparent;
+    font-family: 'Nunito', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    ::placeholder {
+        
+    }
+    margin-left: 2vw;
+    &:focus { 
+        outline: 0;
+    }
 `
 
 export const NomeFuncional = styled.input`
@@ -168,16 +190,43 @@ export const NomeFuncional = styled.input`
 `
 
 export const CategoriaEstatico = styled.h5`
-    font-size: 13px;
-    width: 4vw;
-    height: 4vh;
+    display: flex;
+    border-style: none;
+    background-color: transparent;
+    font-family: 'Nunito', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    ::placeholder {
+        
+    }
+    margin-left: 0.2vw;
+    &:focus { 
+        outline: 0;
+    }
 
 `
 
 export const ProfissaoEstatico = styled.h5`
-    font-size: 13px;
+    /* font-size: 13px;
     width: 4vw;
-    height: 4vh;
+    height: 4vh; */
+    margin-left: 40vw;
+    display: flex;
+    border-style: none;
+    background-color: transparent;
+    font-family: 'Nunito', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    ::placeholder {
+        
+    }
+    margin-left: 2vw;
+    &:focus { 
+        outline: 0;
+    }
+
 `
 export const CategoriaFuncional = styled.input`
     display: flex;
@@ -211,4 +260,24 @@ export const ProfissaoFuncional = styled.input`
     &:focus { 
         outline: 0;
     }
+    
+`
+
+export const CriarPostagemEstatico = styled.h5`
+    margin-left: 0.2vw;
+    margin-top: 20vh;
+    display: flex;
+    font-family: 'Nunito', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    &:focus { 
+        outline: 0;
+    }
+
+`
+export const CriarPostagem = styled.h5`
+    display: flex;
+    flex-direction: row;
+    align-items: center; 
 `

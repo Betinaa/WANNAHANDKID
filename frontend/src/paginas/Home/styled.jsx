@@ -196,7 +196,7 @@ export const CaixaContainer = styled.input`
     font-weight: 500;
     font-size: 12px;
     ::placeholder {
-        
+    
     }
     margin-left: 2vw;
     &:focus { 

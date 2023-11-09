@@ -1,7 +1,7 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
 
-const Card = () =>{
+export const Card = () =>{
 
     const [array, setArray] = useState([])
     const pegarPosts = () =>{

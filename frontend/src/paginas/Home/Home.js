@@ -1,5 +1,5 @@
 import Header from "../../components/Header/Header"
-import { DivRight, DivLeft, BodyContainer, H1Container, H5Container, H5Container2, H5Container3, DivCard, SectionContainer, CaixaEmailContainer, Caixa, Button, ImgMeninaFrente, EnvelopeEmail, CaixaContainer, Caixa2, H1Container2, DivTitulo, SectionCadastro, DivFormulario, DivEnter, Button2, DivCheck, InputCheckBox, Label, DivLogin, H6Container1, ButtonLogin, H6Container3, SectionSujestoes, H6Sujestoes, DivCima, VideoCard, DivTitulos, H3Titulo, H5Classificacao } from './styled';
+import { DivRight, DivLeft, BodyContainer, H1Container, H5Container, H5Container2, H5Container3, DivCard, SectionContainer, CaixaEmailContainer, Caixa, Button, ImgMeninaFrente, EnvelopeEmail, CaixaContainer, Caixa2, H1Container2, DivTitulo, SectionCadastro, DivFormulario, DivEnter, Button2, DivLogin, H6Container1, ButtonLogin, H6Container3, SectionSujestoes, H6Sujestoes, DivCima, VideoCard, DivTitulos, H3Titulo, H5Classificacao } from './styled';
 import ImgMeninaFront from "../../assets/ImgMeninaFrente.jpg"
 import envelope from "../../assets/envelope.png"
 import { useState } from 'react';
@@ -15,76 +15,18 @@ import imagemdesenho7 from "../../assets/imagemdesenho7.jpg"
 import imagemdesenho8 from "../../assets/imagemdesenho8.jpg"
 import imagemdesenho9 from "../../assets/imagemdesenho9.jpg"
 import { useEffect } from "react";
-import {  useNavigate } from 'react-router-dom';
-import { api } from "../../services/api";
-import { Categoria, Profissao } from "../../components/Header/styled";
+import { api, baseUrl } from "../../services/api";
+import axios from "axios"
+import { useNavigate } from "react-router-dom";
+
 
 
 function Home() {
+
   const [openModal, setOpenModal] = useState(false)
   const [openModalLogin, setOpenModalLogin] = useState(false)
 
-  const [isChecked, setIsChecked] = useState(false)
-
-  const mudaState = () => {
-    setIsChecked(!isChecked);
-  };
-  const navigate = useNavigate();
-  const [password, setPassword] = useState("");
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [categoria, setCategoria] = useState("");
-  const [profissao, setProfissao] = useState("");
-
-  useEffect(() => {
-    // Verifique se existem valores no localStorage e carregue-os
-    const savedName = localStorage.getItem("name");
-    const savedPassword = localStorage.getItem("password");
-    const savedEmail = localStorage.getItem("email");
-    const savedCategoria = localStorage.getItem("categoria");
-    const savedProfissao = localStorage.getItem("profissao");
-
-    if (savedName) {
-      setName(savedName);
-    }
-    if (savedPassword) {
-      setPassword(savedPassword);
-    }
-    if (savedEmail) {
-      setEmail(savedEmail);
-    }
-    if (savedCategoria) {
-      setCategoria(savedCategoria);
-    }
-    if (savedProfissao) {
-      setProfissao(savedProfissao);
-    }
-
-  }, []);
-
-  useEffect(() => {
-    // Salve os valores das variáveis no localStorage sempre que houver alterações
-    localStorage.setItem("name", name);
-    localStorage.setItem("password", password);
-    localStorage.setItem("email", email);
-    localStorage.setItem("categoria", Categoria);
-    localStorage.setItem("profissao", Profissao);
-  }, [name, password, email]);
-    const handleSubmit = async (e) => {
-      e.preventDefault();
-      const data = {
-        name,
-        password,
-        email,
-        Categoria,
-        Profissao
-      };
-      await api.post("/user/create", data);
-      alert("Usuário criado com sucesso!");
-      navigate("/home")
-    };
-
-
+  const navigate = useNavigate()
 
   return (
     <>
@@ -110,7 +52,7 @@ function Home() {
               <CaixaEmailContainer placeholder="exemplo@gmail.com" />
               <Button onClick={() => setOpenModal(true)}> Submit </Button>
               <Modal isOpen={openModal} setModalOpen={() => setOpenModal(!openModal)} >
-              <SectionCadastro>
+              {/* <SectionCadastro>
                 <DivTitulo>
                     <H1Container2>
                         Cadastro
@@ -121,9 +63,9 @@ function Home() {
                 <Caixa2>
                   <CaixaContainer 
                             type="text"
-                            id="usuario"
-                            value={name}
-                            placeholder="Nome de Usuário"/>
+                            value={nome}
+                            placeholder="Nome de Usuário"
+                            />
                 </Caixa2>
                 <Caixa2>
                   <CaixaContainer 
@@ -131,7 +73,7 @@ function Home() {
                             id="email"
                             placeholder="Email"
                             value={email}
-                            // onChange = {(e) => setEmail(e.target.value)}
+                            onChange = {(e) => setEmail(e.target.value)}
                   />
                 </Caixa2>
                 <Caixa2>
@@ -140,7 +82,7 @@ function Home() {
                             id="senha"
                             placeholder="Senha"
                             value={password} 
-                            // onChange = {(e) => setPassword(e.target.value)}
+                            onChange = {(e) => setPassword(e.target.value)}
                             />
                 </Caixa2>
                 <Caixa2>
@@ -161,22 +103,11 @@ function Home() {
                 </Caixa2>
 
                 <DivEnter>
-                  <Button2 onClick={handleSubmit} type="submit"> Entrar </Button2>
+                  <Button2 onClick={handleSubmitRegister} type="submit"> Entrar </Button2>
                 </DivEnter>
-
-                      <DivCheck>
-                        <Label>
-                          <InputCheckBox
-                              type="checkbox"
-                              checked={isChecked}
-                              onChange= {mudaState}
-                          />  Se lembre de mim
-                        </Label>
-                      </DivCheck>
-
                   </DivFormulario>
 
-              </SectionCadastro>
+              </SectionCadastro> */}
 
               </Modal>
             </Caixa>
@@ -189,20 +120,21 @@ function Home() {
                 
                 <ButtonLogin onClick={() => setOpenModalLogin(true)}> Login </ButtonLogin>
               <ModalLogin isOpen={openModalLogin} setModalLoginOpen={() => setOpenModalLogin(!openModalLogin)}>
-              <SectionCadastro>
+              {/* <SectionCadastro>
                 <DivTitulo>
                     <H1Container2>
-                        cristinaferreira
+                       Login
                     </H1Container2>
                 </DivTitulo>
 
                 <DivFormulario>
                 <Caixa2>
-                  <CaixaContainer type="text"
-                            id="usuario"
+                  <CaixaContainer 
+                            type="text"
+                            id="email"
                             placeholder="Email"
-                            // value={email}
-                            // onChange = {(e) => setEmail(e.target.value)} 
+                            value={email}
+                            onChange = {(e)=>setEmail(e.target.value)} 
                             />
                 </Caixa2>
                 <Caixa2>
@@ -210,8 +142,8 @@ function Home() {
                             type="password"
                             id="senha"
                             placeholder="Senha"
-                            // value={password} 
-                            // onChange = {(e) => setPassword(e.target.value)}   
+                            value={password} 
+                            onChange = {(e)=>setPassword(e.target.value)}   
                   />
                 </Caixa2>
 
@@ -219,19 +151,9 @@ function Home() {
                   <Button2 type="submit" id="submit"> Entrar </Button2>
                 </DivEnter>
 
-                      <DivCheck>
-                        <Label>
-                          <InputCheckBox
-                              type="checkbox"
-                              checked={isChecked}
-                              onChange= {mudaState}
-                          />  Esqueci minha senha
-                        </Label>
-                      </DivCheck>
-
                   </DivFormulario>
 
-              </SectionCadastro>
+              </SectionCadastro> */}
 
               </ModalLogin>
 
