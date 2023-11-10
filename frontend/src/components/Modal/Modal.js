@@ -5,7 +5,7 @@ import { baseUrl } from "../../services/api";
 import { useState } from 'react';
 
 
-function Modal({ isOpen, children, setModalOpen }) {
+function Modal({ isOpen, setModalOpen }) {
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -20,26 +20,30 @@ function Modal({ isOpen, children, setModalOpen }) {
     navigate("/home");
 
     window.location.reload();
-
   };
 
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     const data = {
-      'email':email,
+      ' email':email,
       'password':password,
       'name':nome
-      // profissao,
-      // categoria
     };
-    console.log(data)
-    const response = await baseUrl.post('/api/user/create', data);
-    console.log(response.data.data[0])
-    alert("Usuário criado com sucesso!");
+    try {
+      await baseUrl.post("user/create", data);
+      console.log("Usuário criado com sucesso!");
 
-    goToHome()
+      goToHome()
+    } catch (error) {
+      console.error("Erro ao fazer login:", error);
+      setError("Credenciais inválidas. Verifique seu email e senha.");
+    }
   };
+    // console.log(data)
+    // const response = await baseUrl.post('user/create', data);
+    // console.log(response.data.data[0])
+    // alert("Usuário criado com sucesso!");
 
 
   if (isOpen) {
@@ -104,7 +108,7 @@ function Modal({ isOpen, children, setModalOpen }) {
                 </Caixa2> */}
 
                 <DivEnter>
-                  <Button2 onClick={handleSubmit} type="submit"> Entrar </Button2>
+                  <Button2 onClick={handleSubmit} type="submit"> Cadastrar </Button2>
                 </DivEnter>
               </DivFormulario>
 
@@ -118,7 +122,7 @@ function Modal({ isOpen, children, setModalOpen }) {
 
   return null
 
-}
+};
 
 export default Modal;
 

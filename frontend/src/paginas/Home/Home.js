@@ -1,5 +1,5 @@
 import Header from "../../components/Header/Header"
-import { DivRight, DivLeft, BodyContainer, H1Container, H5Container, H5Container2, H5Container3, DivCard, SectionContainer, CaixaEmailContainer, Caixa, Button, ImgMeninaFrente, EnvelopeEmail, CaixaContainer, Caixa2, H1Container2, DivTitulo, SectionCadastro, DivFormulario, DivEnter, Button2, DivLogin, H6Container1, ButtonLogin, H6Container3, SectionSujestoes, H6Sujestoes, DivCima, VideoCard, DivTitulos, H3Titulo, H5Classificacao } from './styled';
+import { DivRight, DivLeft, BodyContainer, H1Container, H5Container, H5Container2, H5Container3, DivCard, SectionContainer, CaixaEmailContainer, Caixa, Button, ImgMeninaFrente, EnvelopeEmail, DivLogin, H6Container1, ButtonLogin, H6Container3, SectionSujestoes, H6Sujestoes, DivCima, VideoCard, DivTitulos, H3Titulo, H5Classificacao } from './styled';
 import ImgMeninaFront from "../../assets/ImgMeninaFrente.jpg"
 import envelope from "../../assets/envelope.png"
 import { useState } from 'react';
@@ -52,63 +52,6 @@ function Home() {
               <CaixaEmailContainer placeholder="exemplo@gmail.com" />
               <Button onClick={() => setOpenModal(true)}> Submit </Button>
               <Modal isOpen={openModal} setModalOpen={() => setOpenModal(!openModal)} >
-              {/* <SectionCadastro>
-                <DivTitulo>
-                    <H1Container2>
-                        Cadastro
-                    </H1Container2>
-                </DivTitulo>
-
-                <DivFormulario>
-                <Caixa2>
-                  <CaixaContainer 
-                            type="text"
-                            value={nome}
-                            placeholder="Nome de Usuário"
-                            />
-                </Caixa2>
-                <Caixa2>
-                  <CaixaContainer 
-                            type="text"
-                            id="email"
-                            placeholder="Email"
-                            value={email}
-                            onChange = {(e) => setEmail(e.target.value)}
-                  />
-                </Caixa2>
-                <Caixa2>
-                  <CaixaContainer                             
-                            type="password"
-                            id="senha"
-                            placeholder="Senha"
-                            value={password} 
-                            onChange = {(e) => setPassword(e.target.value)}
-                            />
-                </Caixa2>
-                <Caixa2>
-                  <CaixaContainer 
-                            placeholder="Categoria" 
-                            type="text"
-                            id="categoria"
-                            value={categoria}
-                  />
-                </Caixa2>
-                <Caixa2>
-                  <CaixaContainer 
-                            placeholder="Profissão" 
-                            type="text"
-                            id="profissao"
-                            value={profissao}
-                            />
-                </Caixa2>
-
-                <DivEnter>
-                  <Button2 onClick={handleSubmitRegister} type="submit"> Entrar </Button2>
-                </DivEnter>
-                  </DivFormulario>
-
-              </SectionCadastro> */}
-
               </Modal>
             </Caixa>
 
@@ -120,41 +63,7 @@ function Home() {
                 
                 <ButtonLogin onClick={() => setOpenModalLogin(true)}> Login </ButtonLogin>
               <ModalLogin isOpen={openModalLogin} setModalLoginOpen={() => setOpenModalLogin(!openModalLogin)}>
-              {/* <SectionCadastro>
-                <DivTitulo>
-                    <H1Container2>
-                       Login
-                    </H1Container2>
-                </DivTitulo>
-
-                <DivFormulario>
-                <Caixa2>
-                  <CaixaContainer 
-                            type="text"
-                            id="email"
-                            placeholder="Email"
-                            value={email}
-                            onChange = {(e)=>setEmail(e.target.value)} 
-                            />
-                </Caixa2>
-                <Caixa2>
-                  <CaixaContainer   
-                            type="password"
-                            id="senha"
-                            placeholder="Senha"
-                            value={password} 
-                            onChange = {(e)=>setPassword(e.target.value)}   
-                  />
-                </Caixa2>
-
-                <DivEnter>
-                  <Button2 type="submit" id="submit"> Entrar </Button2>
-                </DivEnter>
-
-                  </DivFormulario>
-
-              </SectionCadastro> */}
-
+            
               </ModalLogin>
 
                 <H6Container3>
