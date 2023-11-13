@@ -27,7 +27,6 @@ function Videos() {
                 <Link to='/reproducao'><VideoCard src={imagemdesenho7} alt="desenho7" /></Link>
                 <Link to='/reproducao'><VideoCard src={imagemdesenho8} alt="desenho8" /></Link>
                 <Link to='/reproducao'><VideoCard src={imagemdesenho9} alt="desenho9" /></Link>
-                
 
             </SectionContainer>
         </BodyContainer>

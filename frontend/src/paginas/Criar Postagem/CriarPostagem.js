@@ -1,46 +1,63 @@
-// import Header from "../../components/Header/Header"
-// import { useNavigate } from "react-router-dom";
-// import { DescContainer, TituloContainer, TextoContainer, DivPublic, DivImg, ButtonEstilo } from "./styled";
-
-// import Card from "../../components/Card/Card";
-// import { ContainerGrande } from "../../components/Card/styled";
-
-// import PublicImg from "../../assets/add_box_FILL0_wght400_GRAD0_opsz48.png"
-// import { useEffect } from "react";
+import Header from "../../components/Header/Header";
+import { useNavigate } from "react-router-dom";
+import { BackArrow, Card1, Drop, Card2, CardContainer, H3container1, H1conteiner2, CenterDiv, DropFileHere, LeftDiv, MainContent, PageWrapper, RightDiv, Image, TextContainer1, TextContainer2 } from "./styled";
+// import profile from "../../assets/fotoPerfil.jpg"
+// import drophere from "../../assets/drophere.png"
+import { useEffect } from "react";
 
 
 
-// function CriarPostagem(props) {
-//     const navigate = useNavigate()
+function CriarPostagem() {
+    const navigate = useNavigate()
   
-//   const goToPost = () => {
-//     navigate('/post')
-//   }
+    const goToPost = () => {
+    navigate('/post')
+    }
 
-//   useEffect(() => {
-//     const token = localStorage.getItem('token')
-//     if (!token) {
-//       navigate('/')
-//     }
-//   },[navigate])
+    useEffect(() => {
+    const token = localStorage.getItem('token')
+    if (!token) {
+      navigate('/')
+    }
+    },[navigate])
+    return (
+        <>
+         <Header/>
+         <PageWrapper>
+    
+        <MainContent>
+          <LeftDiv>
+            <BackArrow>&#8592;</BackArrow>
+          </LeftDiv>
 
-//     return (
-//         <>
-//             <Header/>
-//             <TextoContainer>    
-//                 <TituloContainer>Introdução ao mercado de trabalho</TituloContainer>
-//                      <DescContainer>Venha participar do nosso fórum dedicado a discutir a inserção do cidadão no mercado de trabalho! Juntos, podemos compartilhar experiências, ideias e soluções para os desafios enfrentados por aqueles que buscam oportunidades profissionais. Seja você um estudante em busca do primeiro emprego, um profissional em transição de carreira ou um empregador disposto a oferecer oportunidades, o nosso espaço é aberto e acolhedor para todos.</DescContainer>
-//             </TextoContainer>
-//                 <DivPublic>
-//                     <ButtonEstilo onClick={goToPost}>    
-//                          <DivImg src={PublicImg} alt=""/>
-//                     </ButtonEstilo>
-//                 </DivPublic>
-//                     <ContainerGrande>
-//                         <Card news={props.news} setNews={props.serNews} />
-//                     </ContainerGrande> 
-//         </>
-//     )
-// }
+          <CenterDiv>
+            {/* <Image src={profile} alt="Imagem de perfil" /> */}
+          </CenterDiv>
 
-// export default CriarPostagem;
+          <RightDiv>
+            <p>Crie sua própria postagem!</p>
+          </RightDiv>
+        </MainContent>
+
+        <CardContainer>
+            <Card1>
+                <H3container1> Escreva o titulo da sua postagem </H3container1>
+                <TextContainer1 placeholder="Escreva um titulo para a sua postagem"/>
+            </Card1>
+            <Card2>
+                <H1conteiner2>Escreva um texto para a sua postagem</H1conteiner2>
+                <TextContainer2 placeholder="Escreva um titulo para a sua postagem"/>
+            </Card2>
+        </CardContainer>
+
+        <DropFileHere>
+            {/* <Drop src={drophere} alt="imagemdrop" /> */}
+            Drop file here
+        </DropFileHere>
+
+      </PageWrapper>
+        </>
+    ) 
+    }
+
+export default CriarPostagem;

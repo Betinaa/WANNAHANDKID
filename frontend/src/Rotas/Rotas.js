@@ -11,7 +11,8 @@ function Rotas() {
     return (
         <BrowserRouter>
             <Routes>
-                <Route index element={<Home />} /> 
+                <Route index element={<Home />} />
+                <Route path="/home" element={<Home />} />
                 <Route path="/perfil" element={<ModalPerfil />} />
                 <Route path="/videos" element={<Videos />} />
                 <Route path="/reproducao" element={<Reproducao />} />

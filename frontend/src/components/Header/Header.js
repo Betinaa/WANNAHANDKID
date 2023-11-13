@@ -69,9 +69,11 @@ function Header() {
             </Categoria>
 
             <CriarPostagem>
-              <CriarPostagemEstatico>
+            <Link to='/criarpostagem'>
+            <CriarPostagemEstatico>
                 Criar Postagem
-              </CriarPostagemEstatico>
+            </CriarPostagemEstatico>
+            </Link>
             </CriarPostagem>
 
           </Edicao>

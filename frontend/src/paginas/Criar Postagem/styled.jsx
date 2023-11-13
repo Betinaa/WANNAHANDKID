@@ -1,57 +1,172 @@
-// import styled from "styled-components";
 
-// export const TextoContainer = styled.div`
-//     display: flex;
-//     flex-direction: row;
+import styled from 'styled-components';
 
-// `
 
-// export const TituloContainer = styled.h3`
-//     width: 35vw;
-//     height: 30vh;
-//     color: #000;
-//     font-family: Nunito;
-//     font-size: 55px;
-//     font-style: normal;
-//     font-weight: 700;
-//     line-height: 10vh; /* 104.615% */
-//     margin-top:1vh;
-//     display:flex;
-//     margin-left: 30vh;
-//    `
+export const PageWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+`
 
-// export const DescContainer = styled.p`
-//     width: 29vw;
-//     color: #000000;
-//     font-family: Nunito;
-//     font-size: 2vh;
-//     line-height:2.9vh;
-//     font-weight:400;
-//     letter-spacing: -0.38px;
-//     margin-left: 15vh;
-//     margin-top:5vh;
 
-// `
+export const MainContent = styled.div`
+  display: flex;
+  width: 100%;
+`
 
-// export const ImagemContainer = styled.img`
-//     object-fit: cover;
-//     position:absolute;
-//     width: 100%;
-//     height: 100%;
-//     border-radius: 30%;
-// `
-// export const DivPublic = styled.div`
-//     display: flex;
-//     flex-direction: row;
-//     align-items: center; /* Centraliza verticalmente */
-//     justify-content: center; /* Centraliza horizontalmente */
-//     margin-bottom:1.5vh;
+export const LeftDiv = styled.div`
+  padding: 20px;
+  text-align: center;
+  background-color: #fcfcfc;
+  width: 3vw;
+  height: 10vh;
+`
 
-// `
+export const CenterDiv = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: #ffffff;
+`
 
-// export const DivImg = styled.img`
-//     width: 4vh;
-// `
+export const BackArrow = styled.div`
+  width: 30px;
+  height: 30px;
+  background-color: #fefefe;
+  color: #000000;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  margin-right: 20px;
+`
 
-// export const ButtonEstilo = styled.div`
-// `
+
+export const Image = styled.img`
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+`
+
+
+export const RightDiv = styled.div`
+  text-align: center;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  align-items: center;
+`
+
+
+export const CardContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+`
+
+
+export const Card1 = styled.div`
+  flex: 1;
+  background-color: #f0f0f0;
+  border-radius: 35px;
+  padding: 20px;
+  text-align: center;
+  margin-right: 10px;
+  width: 35vw;
+  height: 50vh;
+`
+
+export const Card2 = styled.div`
+  flex: 1;
+  background-color: #f0f0f0;
+  border-radius: 35px;
+  padding: 20px;
+  text-align: center;
+  margin-right: 10px;
+  width: 35vw;
+  height: 50vh;
+`
+
+export const DropFileHere = styled.div`
+  background-color: #f0f0f0;
+  border-radius: 35px;
+  padding: 20px;
+  text-align: center;
+  margin-top: 20px;
+  width: 71vw;
+  height: 30vh;
+`
+export const H1conteiner2 = styled.h3`   
+  display: flex;
+  text-indent: flex-start;
+  justify: left;
+  margin-top: 5vh;
+  width: 16vw;
+  text-align: left;
+  margin-left: 2vw;
+`
+export const H3container1 = styled.h3`  
+  display: flex;
+  text-indent: flex-start;
+  justify: left;
+  margin-top: 5vh;
+  width: 13vw;
+  text-align: left;
+  margin-left: 2vw;
+`
+export const TextContainer1 = styled.input` 
+    text-align: left;  
+    margin-top: 5vh;
+    display: flex;
+    flex-direction: row;
+    align-items: left; /* Centraliza verticalmente */
+    justify-content: left; /* Centraliza horizontalmente */
+    width: 80%;
+    border-style: none;
+    background-color: transparent;
+    font-family: 'Nunito', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    color:#000000;
+    margin-left: 2vw;
+    ::placeholder {
+        
+    }
+    margin-left: 1vw;
+    &:focus { 
+        outline: 0;
+    }
+
+`
+
+export const TextContainer2 = styled.input`   
+    text-align: left;  
+    margin-top: 5vh;
+    display: flex;
+    flex-direction: row;
+    align-items: left; /* Centraliza verticalmente */
+    justify-content: left; /* Centraliza horizontalmente */
+    width: 80%;
+    border-style: none;
+    background-color: transparent;
+    font-family: 'Nunito', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    color:#000000;
+    margin-left: 2vw;
+    ::placeholder {
+        
+    }
+    margin-left: 1vw;
+    &:focus { 
+        outline: 0;
+    }
+
+`
+export const Drop = styled.img`
+  width: 10vw;
+  height: 12vh;
+  border-radius: 50%;
+`

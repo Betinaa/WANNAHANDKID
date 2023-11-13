@@ -16,7 +16,7 @@ import imagemdesenho8 from "../../assets/imagemdesenho8.jpg"
 import imagemdesenho9 from "../../assets/imagemdesenho9.jpg"
 import { useEffect } from "react";
 import { api, baseUrl } from "../../services/api";
-import axios from "axios"
+import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 

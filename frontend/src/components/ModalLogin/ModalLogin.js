@@ -2,7 +2,7 @@ import { DivContainer, DivCard, ImgLogo, SectionCadastro, H1Container2, DivTitul
 import fidodido from '../../assets/fidodido.png';
 import { useState } from 'react';
 import { useNavigate } from "react-router-dom";
-import { baseUrl } from "../../services/api";
+import { api } from "../../services/api";
 
 
 function ModalLogin({ isOpen, children, setModalLoginOpen }) {
@@ -31,14 +31,14 @@ function ModalLogin({ isOpen, children, setModalLoginOpen }) {
         };
         console.log(data);
 
-        const response = await baseUrl.post('auth/login', data)
+        const response = await api.post('auth/login', data)
         console.log(response.data);
 
         // Reorna da API com as chaves
         if (response.data.success === true) {
             alert("Usuário conectado com sucesso!");
 
-            baseUrl.defaults.headers.common[
+            api.defaults.headers.common[
                 "Authorization"
             ] = `Bearer ${response.data.data[0].token}`
 

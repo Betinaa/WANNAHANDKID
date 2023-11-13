@@ -1,7 +1,7 @@
 import { DivContainer, DivCard, ImgLogo, CaixaContainer, Caixa2, H1Container2, DivTitulo, SectionCadastro, DivFormulario, DivEnter, Button2 } from './styled';
 import fidodido from '../../assets/fidodido.png';
 import { useNavigate } from "react-router-dom";
-import { baseUrl } from "../../services/api";
+import { api } from "../../services/api";
 import { useState } from 'react';
 
 
@@ -10,6 +10,7 @@ function Modal({ isOpen, setModalOpen }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [nome, setName] = useState("");
+  const [Erro, setError] = useState('')
   // const [profissao, setProfissao] = useState("");
   // const [categoria, setCategoria] = useState("");
 
@@ -26,24 +27,27 @@ function Modal({ isOpen, setModalOpen }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const data = {
-      ' email':email,
+      'email':email,
       'password':password,
       'name':nome
     };
-    try {
-      await baseUrl.post("user/create", data);
-      console.log("Usuário criado com sucesso!");
-
-      goToHome()
-    } catch (error) {
-      console.error("Erro ao fazer login:", error);
-      setError("Credenciais inválidas. Verifique seu email e senha.");
-    }
-  };
     // console.log(data)
-    // const response = await baseUrl.post('user/create', data);
-    // console.log(response.data.data[0])
-    // alert("Usuário criado com sucesso!");
+    const response = await api.post('user/create', data);
+    console.log(response.data.data[0])
+    alert("Usuário criado com sucesso!");
+    goToHome()
+  //   try {
+  //     // console.log(data);
+  //     await api.post("user/create", data);
+  //     console.log("Usuário criado com sucesso!");
+
+  //     goToHome()
+  //   } catch (Error) {
+  //     console.error("Erro ao fazer cadastro:", Error);
+  //     setError("Credenciais inválidas. Verifique seu email e senha.");
+  //   }
+  };
+
 
 
   if (isOpen) {
@@ -52,7 +56,6 @@ function Modal({ isOpen, setModalOpen }) {
         <DivContainer>
           <ImgLogo src={fidodido} alt="Logo" onClick={setModalOpen} />
           <DivCard>
-            {/* {children} */}
             <SectionCadastro>
               <DivTitulo>
                 <H1Container2>
