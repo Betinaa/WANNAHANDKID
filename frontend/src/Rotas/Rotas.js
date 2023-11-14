@@ -5,7 +5,7 @@ import Favoritos from "../paginas/Favoritos/Favoritos";
 import Home from "../paginas/Home/Home";
 import Reproducao from "../paginas/Reproducao/Reproducao";
 import Videos from "../paginas/Videos/Videos";
-import CriarPostagem from "../paginas/Criar Postagem/CriarPostagem";
+import CriarPostagem from "../paginas/Criar_Postagem/CriarPostagem";
 
 function Rotas() {
     return (

@@ -12,7 +12,7 @@ export const DivButtonMenu = styled.button`
     align-items: left; /* Centraliza verticalmente */
     justify-content: left; /* Centraliza horizontalmente */
     background-color: #FFFFFF;
-    cursor: zoom-in;
+    cursor: pointer;
     border: none;
 `
 

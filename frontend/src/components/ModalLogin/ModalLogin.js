@@ -5,21 +5,18 @@ import { useNavigate } from "react-router-dom";
 import { api } from "../../services/api";
 
 
-function ModalLogin({ isOpen, children, setModalLoginOpen }) {
+function ModalLogin({ isOpen, setModalLoginOpen }) {
 
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
-    const [user, setUser] = useState('')
     const signed = false;
 
-    const navigate = useNavigate();
-
+    const navigate = useNavigate()
     const goToHome = () => {
 
         navigate("/home");
-
+    
         window.location.reload();
-
     };
 
     const handleSubmit = async (e) => {
@@ -29,33 +26,24 @@ function ModalLogin({ isOpen, children, setModalLoginOpen }) {
             email: email,
             password: password
         };
-        console.log(data);
-
-        const response = await api.post('auth/login', data)
-        console.log(response.data);
-
-        // Reorna da API com as chaves
-        if (response.data.success === true) {
-            alert("Usuário conectado com sucesso!");
-
-            api.defaults.headers.common[
-                "Authorization"
-            ] = `Bearer ${response.data.data[0].token}`
-
-            localStorage.setItem("user", JSON.stringify(response.data.data[0].email));
-            localStorage.setItem("token", response.data.data[0].token);
-            setUser(response.data.data[0])
-
-            //signed = true;
-
-            goToHome()
-
-        } else {
-            alert('Num deu!')
-
+        try{
+            console.log(data);
+            const response = await api.post('/auth/login', data);
+    
+            console.log(response.data);
+    
+            if (response.data.success) {
+                alert('Login concluído');
+                // redireciona para home
+                goToHome()
+            } else {
+                alert('Não foi possível entrar');
+            }     
+    
+        } catch(error){
+            console.log(error)
         }
-
-    };
+    }
 
     if (isOpen) 
     if (!signed)
@@ -94,7 +82,7 @@ function ModalLogin({ isOpen, children, setModalLoginOpen }) {
                                 </Caixa2>
 
                                 <DivEnter>
-                                    <Button2 type="submit" id="submit"> Entrar </Button2>
+                                    <Button2 type="submit" onClick={handleSubmit}> Entrar </Button2>
                                 </DivEnter>
 
                             </DivFormulario>

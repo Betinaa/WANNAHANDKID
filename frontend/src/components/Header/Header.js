@@ -15,6 +15,11 @@ function Header() {
 
   const navigate = useNavigate()
 
+  function goToCreateP() {
+    console.log('aaaaaaaaa')
+    navigate('/criarpostagem')
+  }
+
   return (
   <>
     <HeaderContainer>
@@ -69,11 +74,9 @@ function Header() {
             </Categoria>
 
             <CriarPostagem>
-            <Link to='/criarpostagem'>
-            <CriarPostagemEstatico>
+            <CriarPostagemEstatico onClick={goToCreateP}>
                 Criar Postagem
             </CriarPostagemEstatico>
-            </Link>
             </CriarPostagem>
 
           </Edicao>
