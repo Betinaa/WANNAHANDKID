@@ -174,8 +174,7 @@ export const EnvelopeEmail = styled.img`
     margin-left: 2vw;
     opacity: 42%;
 `
-// export const FotoTras = styled.img`
-//     position: absolute; 
+// export const Imgtras = styled.img`
 //     width: 18vw;
 //     height: 42vh;
 //     border-radius: 40px;
@@ -187,6 +186,7 @@ export const EnvelopeEmail = styled.img`
 //     opacity: 70%;
 //     transform: rotate(365deg);
 // `
+
 export const CaixaContainer = styled.input`
     display: flex;
     border-style: none;

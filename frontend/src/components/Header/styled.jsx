@@ -85,6 +85,8 @@ export const Profissao = styled.h5`
 
 export const ParteMeio = styled.div`
     margin-left: 0.5vw;
+
+    
 `
 
 export const Descricao = styled.div`
@@ -100,7 +102,7 @@ export const Edicao = styled.div`
     flex-direction: column;
     justify-content: center;
     margin-left: 9vh;
-    margin-top: 19vh;
+    margin-top: 16vh;
 
 `
 
@@ -110,10 +112,11 @@ export const Nome = styled.h5`
     align-items: center;
 `
 
-export const ProfissaoEditar = styled.h5`
+export const EmailEditar = styled.h5`
     display: flex;
     flex-direction: row;
     align-items: center; 
+    margin-top: 4vh;
 `
 
 export const Favoritos = styled.div`
@@ -123,7 +126,10 @@ export const Favoritos = styled.div`
 `
 
 export const Categoria = styled.h5`
-    
+    display: flex;
+    flex-direction: row;
+    align-items: center; 
+    margin-top: 4vh;
 `
 
 export const Favoritado = styled.img`
@@ -131,6 +137,7 @@ export const Favoritado = styled.img`
     height: 4vh;
     cursor: pointer;
     transform: rotate(360deg);
+    margin-bottom: 4vh;
 `
 
 export const FavoritosEstatico = styled.h5`
@@ -141,6 +148,8 @@ export const FavoritosEstatico = styled.h5`
     font-style: normal;
     font-weight: 500;
     font-size: 12px;
+    color: #000000;
+    opacity: 70%; 
     ::placeholder {
         
     }
@@ -156,11 +165,12 @@ export const FavoritosFuncional = styled.h5`
 export const NomeEstatico = styled.h5`
     display: flex;
     border-style: none;
-    background-color: transparent;
     font-family: 'Nunito', sans-serif;
     font-style: normal;
     font-weight: 500;
     font-size: 12px;
+    color: #000000;
+    opacity: 70%; 
     ::placeholder {
         
     }
@@ -171,10 +181,9 @@ export const NomeEstatico = styled.h5`
 `
 
 export const NomeFuncional = styled.input`
-    margin-left: 40vw;
+    margin-left: 17vw;
     display: flex;
     border-style: none;
-    background-color: transparent;
     font-family: 'Nunito', sans-serif;
     font-style: normal;
     font-weight: 500;
@@ -182,7 +191,6 @@ export const NomeFuncional = styled.input`
     ::placeholder {
         
     }
-    margin-left: 2vw;
     &:focus { 
         outline: 0;
     }
@@ -197,21 +205,42 @@ export const CategoriaEstatico = styled.h5`
     font-style: normal;
     font-weight: 500;
     font-size: 12px;
+    color: #000000;
+    opacity: 70%; 
     ::placeholder {
         
     }
-    margin-left: 0.2vw;
+    margin-left: 2vw;
+    /* margin-top: 3vh; */
     &:focus { 
         outline: 0;
     }
 
 `
 
-export const ProfissaoEstatico = styled.h5`
+export const EmailEstatico = styled.h5`
     /* font-size: 13px;
     width: 4vw;
     height: 4vh; */
-    margin-left: 40vw;
+    display: flex;
+    border-style: none;
+    background-color: transparent;
+    font-family: 'Nunito', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    color: #000000;
+    opacity: 70%; 
+    ::placeholder {
+        
+    }
+    margin-left: 2vw;
+    &:focus { 
+        outline: 0;
+    }
+
+`
+export const EmailFuncional = styled.input`
     display: flex;
     border-style: none;
     background-color: transparent;
@@ -222,12 +251,12 @@ export const ProfissaoEstatico = styled.h5`
     ::placeholder {
         
     }
-    margin-left: 2vw;
+    margin-left: 13vw;
     &:focus { 
         outline: 0;
     }
-
 `
+
 export const CategoriaFuncional = styled.input`
     display: flex;
     border-style: none;
@@ -239,24 +268,7 @@ export const CategoriaFuncional = styled.input`
     ::placeholder {
         
     }
-    margin-left: 2vw;
-    &:focus { 
-        outline: 0;
-    }
-`
-
-export const ProfissaoFuncional = styled.input`
-    display: flex;
-    border-style: none;
-    background-color: transparent;
-    font-family: 'Nunito', sans-serif;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 12px;
-    ::placeholder {
-        
-    }
-    margin-left: 2vw;
+    margin-left: 16vw;
     &:focus { 
         outline: 0;
     }
@@ -264,15 +276,18 @@ export const ProfissaoFuncional = styled.input`
 `
 
 export const CriarPostagemEstatico = styled.h5`
-    margin-left: 0.2vw;
-    margin-top: 20vh;
+    margin-left: 6.5vw;
+    margin-top: 15vh;
     display: flex;
     font-family: 'Nunito', sans-serif;
     font-style: normal;
     font-weight: 500;
     font-size: 12px;
+    color: #000000;
+    text-decoration: none;
     &:focus { 
         outline: 0;
+        text-decoration: none;
     }
 
 `
@@ -280,4 +295,37 @@ export const CriarPostagem = styled.h5`
     display: flex;
     flex-direction: row;
     align-items: center; 
+    text-decoration: none;
 `
+
+export const Link = styled.link`
+    display: flex;
+    flex-direction: row;
+    align-items: center; 
+    text-decoration: none;
+`
+
+export const VerPostagemEstatico = styled.h5`
+    margin-left: 6.5vw;
+    margin-top: 4vh;
+    display: flex;
+    font-family: 'Nunito', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    color: #000000;
+    text-decoration: none;
+    &:focus { 
+        outline: 0;
+        text-decoration: none;
+    }
+
+`
+export const VerPostagem = styled.h5`
+    display: flex;
+    flex-direction: row;
+    align-items: center; 
+    text-decoration: none;
+`
+
+

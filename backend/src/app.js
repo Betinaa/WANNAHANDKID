@@ -20,7 +20,7 @@ app.use(express.json());
 app.use(cors())
 // Setar a porta do servidor, a parir do arquivo .env ou assumir 3005
 app.set('port', process.env.PORT || 1903);
-app.use('/api', userRouter);
+app.use('/api/', userRouter);
 app.use('/api/auth', loginRouter);
 app.use('/api/post', postRouter);
 app.use('/api/comment', commentRouter);

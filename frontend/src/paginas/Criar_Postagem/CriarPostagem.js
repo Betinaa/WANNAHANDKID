@@ -1,63 +1,123 @@
 import Header from "../../components/Header/Header";
 import { useNavigate } from "react-router-dom";
-import { BackArrow, Card1, Drop, Card2, CardContainer, H3container1, H1conteiner2, CenterDiv, DropFileHere, LeftDiv, MainContent, PageWrapper, RightDiv, Image, TextContainer1, TextContainer2 } from "./styled";
-// import profile from "../../assets/fotoPerfil.jpg"
-// import drophere from "../../assets/drophere.png"
+import { BackArrow, Card1, Card3, Card2, Card4, CardContainer, H3container1, H1conteiner2, CenterDiv, DropFileHere, LeftDiv, MainContent, PageWrapper, RightDiv, Image, TextContainer1, TextContainer2, TextContainer4, FotoEditarPerfil, TituloH2, CardContainer2, Criacaodopost, H3container2, Finalizacao, ButtonCriar } from "./styled";
 import { useEffect } from "react";
-
-
+import FotoPerfil3 from "../../assets/FotoPerfil3.jpg"
+import dropfileshere from "../../assets/dropfileshere.png"
+import { useState } from 'react';
+import axios from "axios";
+import { api } from "../../services/api";
 
 function CriarPostagem() {
-    const navigate = useNavigate()
-  
-    const goToPost = () => {
+  const navigate = useNavigate()
+
+  const goToPost = () => {
     navigate('/post')
+  }
+
+  const [titulo, setTitulo] = useState("");
+  const [legenda, setLegenda] = useState("");
+  const [tema, setTema] = useState("");
+  const [criador, setCriador] = useState("");
+  const [video, setVideo] = useState("");
+  const id = localStorage.getItem("id")
+  const [preview, setPreview] = useState("");
+
+  useEffect(() => {
+    console.log('------------preview', preview);
+  }, [preview]);
+
+  const handleClick = () => {
+    const formData = {
+      titulo: titulo,
+      tema: tema,
+      legenda: legenda,
+      criador: criador,
+      video: video,
+      user_id: id
     }
 
-    // useEffect(() => {
-    // const token = localStorage.getItem('token')
-    // if (!token) {
-    //   navigate('/')
-    // }
-    // },[navigate])
-    return (
-        <>
-         <Header/>
-         <PageWrapper>
-    
+    console.log(formData)
+
+    axios.post(`http://localhost:3008/api/post/post/create`, formData)
+      .then(function (response) {
+        alert("deu certomeu")
+        console.log(response)
+      })
+      .catch(function (error) {
+        alert("deu errado")
+        console.log(error)
+      });
+
+    }
+  
+
+  return (
+    <>
+      <Header />
+      <PageWrapper>
+
         <MainContent>
           <LeftDiv>
             <BackArrow>&#8592;</BackArrow>
           </LeftDiv>
 
           <CenterDiv>
-            {/* <Image src={profile} alt="Imagem de perfil" /> */}
+            <FotoEditarPerfil src={FotoPerfil3} alt="Perfil" />
           </CenterDiv>
 
           <RightDiv>
-            <p>Crie sua própria postagem!</p>
+            <TituloH2> Crie sua própria postagem!</TituloH2>
           </RightDiv>
         </MainContent>
 
-        <CardContainer>
+        <Criacaodopost>
+          <CardContainer>
             <Card1>
-                <H3container1> Escreva o titulo da sua postagem </H3container1>
-                <TextContainer1 placeholder="Escreva um titulo para a sua postagem"/>
+              <H3container1> Escreva o titulo da sua postagem </H3container1>
+              <TextContainer1 value={titulo} onChange={(e) => setTitulo(e.target.value)} placeholder="Escreva seu titulo para que o publico possa saber que tematica a sua postagem esta expressando" />
             </Card1>
-            <Card2>
-                <H1conteiner2>Escreva um texto para a sua postagem</H1conteiner2>
-                <TextContainer2 placeholder="Escreva um titulo para a sua postagem"/>
-            </Card2>
-        </CardContainer>
+            <DropFileHere>
+              <H3container2> Adcione aqui o arquivo do seu desenho! </H3container2>
+              <Image type="file" 
+                accept="video/*" 
+                src={preview} 
+                alt="drop" onChange={(e) => setVideo(e.target.value)} 
+                value={video} 
+              />
+              <TextContainer4  placeholder="Adcione o video aqui" />
+            </DropFileHere>
 
-        <DropFileHere>
-            {/* <Drop src={drophere} alt="imagemdrop" /> */}
-            Drop file here
-        </DropFileHere>
+            <Card4>
+              <H3container1> Escreva o criador da sua postagem </H3container1>
+              <TextContainer1 onChange={(e) => setCriador(e.target.value)} value={criador} placeholder="Escreva quem foi o criador do seu video " />
+            </Card4>
+          </CardContainer>
+
+          <CardContainer2>
+            <Card2>
+              <H1conteiner2>Escreva uma descriçao para a sua postagem</H1conteiner2>
+              <TextContainer2  onChange={(e) => setLegenda(e.target.value)} value={legenda} placeholder="Escreva sobre o que a sua postagem se trata" />
+            </Card2>
+
+            <Card3>
+              <H1conteiner2>Escreva o tema da sua postagem</H1conteiner2>
+              <TextContainer2 onChange={(e) => setTema(e.target.value)} value={tema} placeholder="Escreva qual o tema tratado no video(maximo 2)" />
+            </Card3>
+
+          </CardContainer2>
+
+        </Criacaodopost>
+
+        <Finalizacao>
+          <ButtonCriar onClick={handleClick}>
+            Postar
+          </ButtonCriar>
+        </Finalizacao>
 
       </PageWrapper>
-        </>
-    ) 
-    }
+    </>
+  )
+}
 
 export default CriarPostagem;

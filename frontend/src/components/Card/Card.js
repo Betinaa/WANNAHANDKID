@@ -1,6 +1,7 @@
 import { useEffect } from "react"
 import  { CardContainer, DescContainer }  from "./styled"
 import axios from "axios"
+import { useNavigate } from "react-router-dom"
 
 function Card(props) {
 
@@ -21,6 +22,12 @@ function Card(props) {
             </CardContainer>
         )
     })
+
+    const navigate = useNavigate()
+  
+    const goToPost = () => {
+    navigate('/post')
+    }
 
     return(
         <>

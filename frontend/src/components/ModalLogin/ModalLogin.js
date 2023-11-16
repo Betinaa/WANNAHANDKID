@@ -33,6 +33,9 @@ function ModalLogin({ isOpen, setModalLoginOpen }) {
             console.log(response.data);
     
             if (response.data.success) {
+                console.log(response.data.data);
+                alert('VERIFICAR ID USUARIO ' + response.data.data.id)
+                localStorage.setItem('id', response.data.data.id)
                 alert('Login concluído');
                 // redireciona para home
                 goToHome()

@@ -1,8 +1,9 @@
 import Header from "../../components/Header/Header"
 import { DivRight, DivLeft, BodyContainer, H1Container, H5Container, H5Container2, H5Container3, DivCard, SectionContainer, CaixaEmailContainer, Caixa, Button, ImgMeninaFrente, EnvelopeEmail, DivLogin, H6Container1, ButtonLogin, H6Container3, SectionSujestoes, H6Sujestoes, DivCima, VideoCard, DivTitulos, H3Titulo, H5Classificacao } from './styled';
 import ImgMeninaFront from "../../assets/ImgMeninaFrente.jpg"
+import Imgtras from "../../assets/fototras.jpg"
 import envelope from "../../assets/envelope.png"
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import Modal from "../../components/Modal/Modal"
 import ModalLogin from "../../components/ModalLogin/ModalLogin"
 import imagemdesenho1 from "../../assets/imagemdesenho1.jpg"
@@ -25,6 +26,9 @@ function Home() {
 
   const [openModal, setOpenModal] = useState(false)
   const [openModalLogin, setOpenModalLogin] = useState(false)
+  const [loading, setLoading] = useState(true)
+
+  // const {selectedPostId} = useContext(GlobalStateContext)
 
   const navigate = useNavigate()
 
@@ -72,7 +76,6 @@ function Home() {
             </DivLogin>
 
           </DivLeft>
-
 
           <DivRight>
               <DivCard>

@@ -36,7 +36,7 @@ function Reproducao() {
 
                 <DivText>
                     <DivNota>
-                        <DivAvaliacao>
+                        {/* <DivAvaliacao>
                     <StarCheckboxInput
                         type="checkbox"
                         id="starCheckbox"
@@ -81,7 +81,7 @@ function Reproducao() {
                     <StarCheckboxLabel htmlFor="starCheckbox" checked={isChecked}>
                         &#9733;
                     </StarCheckboxLabel>
-                    </DivAvaliacao>
+                    </DivAvaliacao> */}
 
 
                         <H3Card>

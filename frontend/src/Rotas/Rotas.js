@@ -6,6 +6,8 @@ import Home from "../paginas/Home/Home";
 import Reproducao from "../paginas/Reproducao/Reproducao";
 import Videos from "../paginas/Videos/Videos";
 import CriarPostagem from "../paginas/Criar_Postagem/CriarPostagem";
+import Card from "../components/Card/Card"
+import VisualizarPublicacoes from "../paginas/VisualizarPublicacoes/VisualizarPublicacoes";
 
 function Rotas() {
     return (
@@ -19,6 +21,8 @@ function Rotas() {
                 <Route path="/error" element={<Error />} />
                 <Route path="/favoritos" element={<Favoritos/>}/>
                 <Route path="/criarpostagem" element={<CriarPostagem/>}/>
+                <Route path="/card" element={<Card/>}/>
+                <Route path="/visualizarpublicacoes" element={<VisualizarPublicacoes/>}/>
             </Routes>
 
         </BrowserRouter>

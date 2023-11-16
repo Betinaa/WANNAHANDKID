@@ -2,23 +2,26 @@ import fidodido from "../../assets/fidodido.png"
 import menuIcon from "../../assets/menuicon.png"
 import Lupa from "../../assets/lupa.png"
 import ModalPerfil from "../../components/ModalPerfil/ModalPerfil"
-import { DivButton, DivButtonMenu, DivLogo, HeaderContainer, ImgLogo, ImgMenu, ImgPesquisa, FotoEditarPerfil, ParteCima, NomeUsuario, Profissao, ParteMeio, Descricao, Edicao, Favoritos, ProfissaoEditar, Categoria, Nome, FavoritosEstatico, FavoritosFuncional, Favoritado, NomeEstatico, NomeFuncional, CategoriaEstatico, CategoriaFuncional, ProfissaoEstatico, ProfissaoFuncional, CriarPostagemEstatico, CriarPostagem } from './styled';
-import { useState } from 'react';
+import { DivButton, DivButtonMenu, DivLogo, HeaderContainer, ImgLogo, ImgMenu, ImgPesquisa, FotoEditarPerfil, ParteCima, NomeUsuario, Profissao, ParteMeio, Descricao, Edicao, Favoritos, EmailEditar, Categoria, Nome, FavoritosEstatico, FavoritosFuncional, Favoritado, NomeEstatico, NomeFuncional, CategoriaEstatico, CategoriaFuncional, EmailEstatico,   EmailFuncional, CriarPostagemEstatico, CriarPostagem, PesquisaEscrever, VerPostagemEstatico, VerPostagem } from './styled';
+import { Children, useState } from 'react';
 import FotoPerfil3 from "../../assets/FotoPerfil3.jpg"
 import Bandeira from "../../assets/bandeira.png"
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
+import ModalPesquisa from "../../components/ModalPesquisa/ModalPesquisa"
+
 
 
 function Header() {
   const [openModalPerfil, setOpenModalPerfil] = useState(false)
+  const [openModalPesquisa, setOpenModalPesquisa] = useState(false)
 
   const navigate = useNavigate()
 
-  function goToCreateP() {
-    console.log('aaaaaaaaa')
-    navigate('/criarpostagem')
-  }
+  // function goToCreateP() {
+  //   console.log('aaaaaaaaa')
+  //   navigate('/criarpostagem')
+  // }
 
   return (
   <>
@@ -58,13 +61,13 @@ function Header() {
               </NomeEstatico>
               <NomeFuncional placeholder="Angela Koch" />
             </Nome>
-            <ProfissaoEditar>
-              <ProfissaoEstatico>
-                Profissao
-              </ProfissaoEstatico>
-              <ProfissaoFuncional placeholder="Professora de Educação Infantil" />
+            <EmailEditar>
+              <EmailEstatico>
+                Email
+              </EmailEstatico>
+              <EmailFuncional placeholder="justoritter@gmail.com" />
 
-            </ProfissaoEditar>
+            </EmailEditar>
 
             <Categoria>
               <CategoriaEstatico>
@@ -72,15 +75,24 @@ function Header() {
               </CategoriaEstatico>
               <CategoriaFuncional placeholder="Professora" />
             </Categoria>
+          </Edicao>
+        </ParteMeio>
 
+        <Link to='/criarpostagem'>
             <CriarPostagem>
-            <CriarPostagemEstatico onClick={goToCreateP}>
+            <CriarPostagemEstatico >
                 Criar Postagem
             </CriarPostagemEstatico>
             </CriarPostagem>
+          </Link>
 
-          </Edicao>
-        </ParteMeio>
+          <Link to='/visualizarpublicacoes'>
+            <VerPostagem>
+            <VerPostagemEstatico >
+                Visualizar minhas publicações
+            </VerPostagemEstatico>
+            </VerPostagem>
+          </Link>
 
 
       </ModalPerfil>
@@ -93,9 +105,15 @@ function Header() {
       </DivLogo>
       <DivButton>
 
-        <Link to='/videos'>
-        <ImgPesquisa src={Lupa} onClick={() => navigate('/videos')} alt="Pesquisa" />
-        </Link>
+
+        <ImgPesquisa src={Lupa} 
+        onClick={() => setOpenModalPesquisa(true)} 
+        // onClick={() => navigate('/videos')} 
+        alt="Pesquisa" 
+        />
+        <ModalPesquisa isOpen={openModalPesquisa}
+        setModalPesquisaOpen={() => setOpenModalPesquisa(!openModalPesquisa)}>
+        </ModalPesquisa>
 
       </DivButton>
     </HeaderContainer>
