@@ -1,5 +1,3 @@
-import Header from "../../components/Header/Header"
-import { BodyContainer, SectionContainer, VideoCard } from "./styled";
 import imagemdesenho1 from "../../assets/imagemdesenho1.jpg"
 import imagemdesenho2 from "../../assets/imagemdesenho2.jpg"
 import imagemdesenho3 from "../../assets/imagemdesenho3.jpg"
@@ -11,84 +9,69 @@ import imagemdesenho8 from "../../assets/imagemdesenho8.jpg"
 import imagemdesenho9 from "../../assets/imagemdesenho9.jpg"
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useEffect } from "react"
+import axios from "axios"
+import { api } from "../../services/api"
+import Header from "../../components/Header/Header"
+import Filtro from "../../components/Filtro/Filtro"
+import { Input,RespostaFiltros } from "./styled"
 
 
 function Videos() {
-
+    const navigate = useNavigate()
     const [filtroNome, setFiltroNome] = useState('')
-    const [videos, setVideos] = useState([
-        {
-            id: 1,
-            url: imagemdesenho1,
-            nome: "desenho"
-        },
-        {
-            id: 2,
-            url: imagemdesenho2,
-            nome: "imagemdesenho2"
-        },
-        {
-            id: 3,
-            url: imagemdesenho2,
-            nome: "imagemdesenho2"
-        },
-        {
-            id: 4,
-            url: imagemdesenho2,
-            nome: "2"
-        },
-        {
-            id: 5,
-            url: imagemdesenho2,
-            nome: "6"
+    const [filteredPosts, setFilteredPosts] = useState([])
+    const [nome, setNome] = useState()
+    const [posts, setPosts] = useState([])
+    const [videos, setVideos] = useState([])
+
+    // useEffect(() => {
+    //     const token = localStorage.getItem("token");
+    //     if (!token) {
+    //         navigate("/");
+    //     }
+    // }, [navigate]);
+    
+    
+    // useEffect(() => {
+    //     axios.get(`${api}/posts/posts`)
+    //         .then(function (response) {
+    //             setPosts(response.data.data)
+    //         })
+    //         .catch(function (error) {
+    //             console.log(error)
+    //             alert("Erro ao buscar posts")
+    //         });
+    // })
+   
+    const [checkedToppingsFiltro, setCheckedToppingsFiltro] = useState([]);
+
+    useEffect(() => {
+        if (posts && nome) {
+            const lowercaseNome = nome.toLowerCase();
+            setFilteredPosts(posts.filter(post => post.titulo.toLowerCase().includes(lowercaseNome)));
+        } else {
+            setFilteredPosts(posts);
         }
-        // <Link to='/reproducao'><VideoCard src={imagemdesenho1} alt="desenho1" /></Link>
-        //     <Link to='/reproducao'><VideoCard src={imagemdesenho2} alt="desenho2" /></Link>
-        //     <Link to='/reproducao'><VideoCard src={imagemdesenho3} alt="desenho3" /></Link>
-        //     <Link to='/reproducao'><VideoCard src={imagemdesenho4} alt="desenho4" /></Link>
-        //     <Link to='/reproducao'><VideoCard src={imagemdesenho5} alt="desenho5" /></Link>
-        //     <Link to='/reproducao'><VideoCard src={imagemdesenho6} alt="desenho6" /></Link>
-        //     <Link to='/reproducao'><VideoCard src={imagemdesenho7} alt="desenho7" /></Link>
-        //     <Link to='/reproducao'><VideoCard src={imagemdesenho8} alt="desenho8" /></Link>
-        //     <Link to='/reproducao'><VideoCard src={imagemdesenho9} alt="desenho9" /></Link>
-
-
-    ])
-
-    console.log(filtroNome)
-
-    const novoArray = videos.map((video) => {
-        return (
-            <Link to='/reproducao' key={video.id}>
-                <VideoCard src={video.url} alt="desenho1" />
-            </Link>
-
-        )
-    })
-
-    const filtrarVideo = ()=>{
-       const videosFiltrados= videos.filter((item)=>{
-            return console.log(item.nome.includes(filtroNome))
-        })
-        return videosFiltrados
-    }
-
-    filtrarVideo()
+    }, [nome, posts]);
 
     return (
         <>
-            <Header />
+            <Header/>
 
-            <input placeholder="pesquisar" 
-            typeof={"text"}
-            value={filtroNome}
-            onChange={(e)=>{setFiltroNome(e.target.value)}}
+            {/* <input placeholder="pesquisar"
+                typeof={"text"}
+                value={filtroNome}
+                onChange={(e) => { setFiltroNome(e.target.value) }}
+            /> */} 
+            <Filtro
+            onCheckedToppingsChange={(toppings) => setCheckedToppingsFiltro(toppings)}
             />
-            <BodyContainer>
-                <SectionContainer>
-                    {novoArray}
-                </SectionContainer>
-            </BodyContainer>
+                <Input value={nome} onChange={(e) => setNome(e.target.value)} type='text' placeholder="Pesquise por título" id='titulo' name='titulo' />
+            <RespostaFiltros>
+                {checkedToppingsFiltro}
+            </RespostaFiltros>
 
         </>
     );

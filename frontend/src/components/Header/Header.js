@@ -4,8 +4,6 @@ import Lupa from "../../assets/lupa.png"
 import ModalPerfil from "../../components/ModalPerfil/ModalPerfil"
 import { DivButton, DivButtonMenu, DivLogo, HeaderContainer, ImgLogo, ImgMenu, ImgPesquisa, FotoEditarPerfil, ParteCima, NomeUsuario, Profissao, ParteMeio, Descricao, Edicao, Favoritos, EmailEditar, Categoria, Nome, FavoritosEstatico, FavoritosFuncional, Favoritado, NomeEstatico, NomeFuncional, CategoriaEstatico, CategoriaFuncional, EmailEstatico,   EmailFuncional, CriarPostagemEstatico, CriarPostagem, PesquisaEscrever, VerPostagemEstatico, VerPostagem } from './styled';
 import { Children, useState } from 'react';
-import FotoPerfil3 from "../../assets/FotoPerfil3.jpg"
-import Bandeira from "../../assets/bandeira.png"
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import ModalPesquisa from "../../components/ModalPesquisa/ModalPesquisa"
@@ -18,11 +16,6 @@ function Header() {
 
   const navigate = useNavigate()
 
-  // function goToCreateP() {
-  //   console.log('aaaaaaaaa')
-  //   navigate('/criarpostagem')
-  // }
-
   return (
   <>
     <HeaderContainer>
@@ -32,7 +25,7 @@ function Header() {
       </DivButtonMenu>
       <ModalPerfil isOpen={openModalPerfil}
         setModalPerfilOpen={() => setOpenModalPerfil(!openModalPerfil)}>
-        <ParteCima>
+        {/* <ParteCima>
 
           <FotoEditarPerfil src={FotoPerfil3} alt="Perfil" />
           <Descricao>
@@ -92,7 +85,7 @@ function Header() {
                 Visualizar minhas publicações
             </VerPostagemEstatico>
             </VerPostagem>
-          </Link>
+          </Link> */}
 
 
       </ModalPerfil>
@@ -107,14 +100,16 @@ function Header() {
 
 
         <ImgPesquisa src={Lupa} 
-        onClick={() => setOpenModalPesquisa(true)} 
-        // onClick={() => navigate('/videos')} 
+        // onClick={() => setOpenModalPesquisa(true)} 
+        onClick={() => navigate('/videos')} 
         alt="Pesquisa" 
         />
-        <ModalPesquisa isOpen={openModalPesquisa}
-        setModalPesquisaOpen={() => setOpenModalPesquisa(!openModalPesquisa)}>
-        </ModalPesquisa>
-
+        {/* <ModalPesquisa
+        //  isOpen={openModalPesquisa}
+        // setModalPesquisaOpen={() => setOpenModalPesquisa(!openModalPesquisa)}
+        >
+        </ModalPesquisa> */}
+ 
       </DivButton>
     </HeaderContainer>
     </>

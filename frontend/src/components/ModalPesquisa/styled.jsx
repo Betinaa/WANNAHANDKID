@@ -18,20 +18,19 @@ export const ButtonFundo = styled.button`
 
 export const DivCard = styled.div`
     display: flex;
-    margin-right: 10vw;
+    margin-right: 18vw;
     height: 7vh;
     background-color: #F1F1EA;
     border-radius: 30px;
     color: black;
-    width: 10vw;
+    width: 13vw;
     text-align: right
     align-items: right;
     justify-content: flex-end;
-    margin-left: 80vw;
+    margin-left: 77vw;
     margin-top: 2vh;
 
 `
-
 
 export const PesquisarEscrever = styled.input`
     display: flex;

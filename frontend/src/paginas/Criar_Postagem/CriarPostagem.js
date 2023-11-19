@@ -23,10 +23,25 @@ function CriarPostagem() {
   const id = localStorage.getItem("id")
   const [preview, setPreview] = useState("");
 
-  useEffect(() => {
-    console.log('------------preview', preview);
-  }, [preview]);
+  const [videoFile, setVideoFile] = useState(null);
 
+  const handleVideoUpload = (e) => {
+    const file = e.target.files[0];
+    setVideoFile(file);
+
+    const reader = new FileReader();
+    reader.onloadend = () => {
+      setPreview(reader.result);
+    };
+    reader.readAsDataURL(file);
+  };
+
+  // useEffect(() => {
+  //   console.log('------------preview', preview);
+  // }, [preview]);
+
+
+  
   const handleClick = () => {
     const formData = {
       titulo: titulo,
@@ -38,6 +53,7 @@ function CriarPostagem() {
     }
 
     console.log(formData)
+    console.log(id)
 
     axios.post(`http://localhost:3008/api/post/post/create`, formData)
       .then(function (response) {
@@ -81,7 +97,6 @@ function CriarPostagem() {
               <H3container2> Adcione aqui o arquivo do seu desenho! </H3container2>
               <Image type="file" 
                 accept="video/*" 
-                src={preview} 
                 alt="drop" onChange={(e) => setVideo(e.target.value)} 
                 value={video} 
               />

@@ -36,7 +36,11 @@ function ModalLogin({ isOpen, setModalLoginOpen }) {
                 console.log(response.data.data);
                 alert('VERIFICAR ID USUARIO ' + response.data.data.id)
                 localStorage.setItem('id', response.data.data.id)
+                localStorage.setItem("password", JSON.stringify(response.data.data.password));
+                localStorage.setItem("email", JSON.stringify(response.data.data.email));
+                localStorage.setItem("nome", JSON.stringify(response.data.data.name));
                 alert('Login concluído');
+
                 // redireciona para home
                 goToHome()
             } else {
