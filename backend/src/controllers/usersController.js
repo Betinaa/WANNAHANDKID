@@ -141,7 +141,7 @@ async function updateUser(request, response) {
 // Função que remove usuário no banco
 async function deleteUser(request, response) {
     // Preparar o comando de execução no banco
-    const query = "DELETE FROM users WHERE `id_user` = ?";
+    const query = "DELETE FROM users WHERE `id` = ?";
 
     // Recebimento de parametro da rota
     const params = Array(
@@ -180,9 +180,53 @@ async function deleteUser(request, response) {
     });
 }
 
+async function getUserById (request, response) {
+    // Preparar o comando de execução no banco
+    const query = "SELECT name, email FROM users WHERE `id` = ?";
+
+    // Recebimento de parametro da rota
+    const params = Array(
+        request.params.id,
+        request.body.name,
+        request.body.email,
+    );
+
+    // Executa a ação no banco e valida os retornos para o client que realizou a solicitação
+    connection.query(query, params, (err, results) => {
+        try {
+            if (results) {
+                response
+                    .status(200)
+                    .json({
+                        success: true,
+                        message: `Sucesso! cu.`,
+                        data: results
+                    });
+            } else {
+                response
+                    .status(400)
+                    .json({
+                        success: false,
+                        message: `Não foi possível realizar a remoção. Verifique os dados informados`,
+                        query: err.sql,
+                        sqlMessage: err.sqlMessage
+                    });
+            }
+        } catch (e) { // Caso aconteça algum erro na execução
+            response.status(400).json({
+                    succes: false,
+                    message: "Ocorreu um erro. Não foi possível deletar usuário!",
+                    query: err.sql,
+                    sqlMessage: err.sqlMessage
+                });
+        }
+    });
+}
+
 module.exports = {
     listUsers,
     storeUser,
     updateUser,
-    deleteUser
+    deleteUser,
+    getUserById
 }

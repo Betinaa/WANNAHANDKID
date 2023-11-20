@@ -1,5 +1,20 @@
 const connection = require('../config/db');
 
+var fs = require('fs');
+
+// Função que rcebe dois argumentos: base64str, que é uma string em formato base64 a ser decodificada, e fileName, que é o nome do arquivo onde a decodificação será salva.
+function base64_decode(base64str, fileName){
+console.log('base64_decode :', base64_decode);
+  var bitmap = Buffer.from(base64str, 'base64');
+
+  // O conteúdo decodificado é escrito no arquivo especificado por fileName.
+  fs.writeFileSync(fileName+'',bitmap, 'binary', function (err){
+    if(err){
+      console.log('Conversion error');
+    }
+  } );
+}
+
 async function listPosts(request, response) {
     const query = 'SELECT p.*, (SELECT count(r.post_id) FROM reactions r WHERE r.post_id = p.id ) as likes, ' + 
     ' (SELECT count(c.post_id) FROM comments c WHERE c.post_id = p.id ) as comments ' +
@@ -34,7 +49,7 @@ async function storePost(request, response) {
         request.body.legenda,
         request.body.criador,
         request.body.video,
-        request.body.user_id,          
+        request.body.user_id          
     );
     
     const query = 'INSERT INTO posts(titulo, tema, legenda, criador, video, user_id) values(?, ?, ?, ?, ?, ?);';
