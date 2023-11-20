@@ -6,13 +6,6 @@ export const BodyContainer = styled.body`
     padding: 25px;
 `
 
-export const SectionContainer = styled.section`
-    column-gap: 10px;
-    column-count: 4;
-    margin-left: 3vw;
-    margin-right: 3vw;
-`
-
 export const VideoCard = styled.img`
    width: 100%;
    border-radius: 30px;
@@ -38,4 +31,23 @@ export const RespostaFiltros = styled.p`
     font-weight: 400;
     line-height: normal;
     margin: 0;
+`
+
+
+export const SearchContainer = styled.input`
+
+`
+
+export const SectionContainer = styled.section`
+    overflow: auto;
+    align-items: flex-start;
+    justify-content: center;
+    column-gap: 10px;
+    column-count: 4;
+    margin-left: 3vw;
+    margin-right: 3vw;
+`
+
+export const PostLongCard = styled.div`
+
 `

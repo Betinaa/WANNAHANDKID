@@ -15,63 +15,59 @@ import axios from "axios"
 import { api } from "../../services/api"
 import Header from "../../components/Header/Header"
 import Filtro from "../../components/Filtro/Filtro"
-import { Input,RespostaFiltros } from "./styled"
+import { SearchContainer, SectionContainer, PostLongCard } from './styled';
+import PostCard from "../../components/PostCard/PostCard"
 
 
 function Videos() {
     const navigate = useNavigate()
-    const [filtroNome, setFiltroNome] = useState('')
     const [filteredPosts, setFilteredPosts] = useState([])
-    const [nome, setNome] = useState()
+    const [titulo, setTitulo] = useState()
     const [posts, setPosts] = useState([])
-    const [videos, setVideos] = useState([])
+    const [nome, setNome] = useState()
+    const [video, setVideo] = useState([])
+    const [ searched, setSearched] = useState([])
 
-    // useEffect(() => {
-    //     const token = localStorage.getItem("token");
-    //     if (!token) {
-    //         navigate("/");
-    //     }
-    // }, [navigate]);
-    
-    
-    // useEffect(() => {
-    //     axios.get(`${api}/posts/posts`)
-    //         .then(function (response) {
-    //             setPosts(response.data.data)
-    //         })
-    //         .catch(function (error) {
-    //             console.log(error)
-    //             alert("Erro ao buscar posts")
-    //         });
-    // })
-   
-    const [checkedToppingsFiltro, setCheckedToppingsFiltro] = useState([]);
+    const handleSearchChange = (value) => {
+        setSearched(value);
+    };
 
     useEffect(() => {
-        if (posts && nome) {
-            const lowercaseNome = nome.toLowerCase();
-            setFilteredPosts(posts.filter(post => post.titulo.toLowerCase().includes(lowercaseNome)));
-        } else {
-            setFilteredPosts(posts);
-        }
-    }, [nome, posts]);
+            const fetchData = async () => {
+            try {
+                const response = await api.get('/post/posts');
+                const postList = response.data.data;
+                setPosts(postList)
+            } catch(err) {
+                console.error(err);
+            }
+        };
+        fetchData();
+    }, []);
 
     return (
         <>
             <Header/>
+            <PostCard/>
 
-            {/* <input placeholder="pesquisar"
-                typeof={"text"}
-                value={filtroNome}
-                onChange={(e) => { setFiltroNome(e.target.value) }}
-            /> */} 
-            <Filtro
-            onCheckedToppingsChange={(toppings) => setCheckedToppingsFiltro(toppings)}
+            <SearchContainer
+            type= 'text'
+            placeholder= 'Pesquisar'
+            value={searched}
+            onChange= {(e) => handleSearchChange(e.target.value)}
             />
-                <Input value={nome} onChange={(e) => setNome(e.target.value)} type='text' placeholder="Pesquise por título" id='titulo' name='titulo' />
-            <RespostaFiltros>
-                {checkedToppingsFiltro}
-            </RespostaFiltros>
+                <SectionContainer>
+                    {posts
+                        .filter((post) => post.tema.toLowerCase().includes(searched.toLowerCase()))
+                        .map((post, index) => (
+                            <PostLongCard
+                                key={index}
+                                PostPhoto={post.video}
+                                CardContentTitle={post.titulo}
+                                CardContentSubtitle={post.tema}
+                            />
+                        ))}
+                </SectionContainer>
 
         </>
     );

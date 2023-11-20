@@ -36,11 +36,6 @@ function CriarPostagem() {
     reader.readAsDataURL(file);
   };
 
-  // useEffect(() => {
-  //   console.log('------------preview', preview);
-  // }, [preview]);
-
-
   
   const handleClick = () => {
     const formData = {
@@ -51,7 +46,7 @@ function CriarPostagem() {
       video: video,
       user_id: id
     }
-
+console.log(video)
     console.log(formData)
     console.log(id)
 
@@ -97,7 +92,8 @@ function CriarPostagem() {
               <H3container2> Adcione aqui o arquivo do seu desenho! </H3container2>
               <Image type="file" 
                 accept="video/*" 
-                alt="drop" onChange={(e) => setVideo(e.target.value)} 
+                alt="drop"  
+                onChange={(e)=> setVideo(e.target.value)} 
                 value={video} 
               />
               <TextContainer4  placeholder="Adcione o video aqui" />
