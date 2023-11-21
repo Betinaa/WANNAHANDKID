@@ -13,7 +13,6 @@ function ModalPerfil({isOpen, setModalPerfilOpen}) {
     const navigate = useNavigate()
 
     const [userData, setUserData] = useState({ name: '', email: '' });
-    // const id = localStorage.getItem("id");
 
 
     const fetchData = async () => {
@@ -46,7 +45,7 @@ function ModalPerfil({isOpen, setModalPerfilOpen}) {
                             <FotoEditarPerfil src={FotoPerfil3} alt="Perfil" />
                             <Descricao>
                                 <NomeUsuario defaultValue={userData.name}>
-                                    Angela Koch
+                                    
                                 </NomeUsuario>
                                 <Profissao>Professora de Educação Infantil</Profissao>
                             </Descricao>
@@ -70,8 +69,7 @@ function ModalPerfil({isOpen, setModalPerfilOpen}) {
                                     <NomeEstatico>
                                         Nome
                                     </NomeEstatico>
-                                    <NomeFuncional 
-                                    placeholder="Angela Koch" 
+                                    <NomeFuncional                                     
                                     defaultValue={userData.name}
                                     />
                                 </Nome>
@@ -80,7 +78,6 @@ function ModalPerfil({isOpen, setModalPerfilOpen}) {
                                         Email
                                     </EmailEstatico>
                                     <EmailFuncional 
-                                    placeholder="justoritter@gmail.com" 
                                     defaultValue={userData.email}
                                     />
 
@@ -103,7 +100,7 @@ function ModalPerfil({isOpen, setModalPerfilOpen}) {
                             </CriarPostagem>
                         </Link>
 
-                        <Link to='/visualizarpublicacoes'>
+                        <Link to='/visualizarpublicacao'>
                             <VerPostagem>
                                 <VerPostagemEstatico >
                                     Visualizar minhas publicações

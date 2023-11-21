@@ -14,17 +14,14 @@ import { useEffect } from "react"
 import axios from "axios"
 import { api } from "../../services/api"
 import Header from "../../components/Header/Header"
-import Filtro from "../../components/Filtro/Filtro"
-import { SearchContainer, SectionContainer, PostLongCard } from './styled';
+import { SearchContainer, SectionContainer} from './styled';
 import PostCard from "../../components/PostCard/PostCard"
 
 
 function Videos() {
     const navigate = useNavigate()
-    const [filteredPosts, setFilteredPosts] = useState([])
     const [titulo, setTitulo] = useState()
     const [posts, setPosts] = useState([])
-    const [nome, setNome] = useState()
     const [video, setVideo] = useState([])
     const [ searched, setSearched] = useState([])
 
@@ -48,7 +45,6 @@ function Videos() {
     return (
         <>
             <Header/>
-            <PostCard/>
 
             <SearchContainer
             type= 'text'
@@ -60,7 +56,7 @@ function Videos() {
                     {posts
                         .filter((post) => post.tema.toLowerCase().includes(searched.toLowerCase()))
                         .map((post, index) => (
-                            <PostLongCard
+                            <PostCard
                                 key={index}
                                 PostPhoto={post.video}
                                 CardContentTitle={post.titulo}

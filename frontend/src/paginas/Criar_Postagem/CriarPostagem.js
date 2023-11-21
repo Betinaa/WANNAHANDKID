@@ -38,15 +38,17 @@ function CriarPostagem() {
 
   
   const handleClick = () => {
-    const formData = {
-      titulo: titulo,
-      tema: tema,
-      legenda: legenda,
-      criador: criador,
-      video: video,
-      user_id: id
-    }
-console.log(video)
+    let formData = new FormData();
+
+    
+      formData.append('titulo', titulo);
+      formData.append('tema', tema);
+      formData.append('legenda', legenda);
+      formData.append('criador', criador);
+      formData.append('file', video);
+      formData.append('user_id', id);
+      
+    console.log(video)
     console.log(formData)
     console.log(id)
 
@@ -90,11 +92,12 @@ console.log(video)
             </Card1>
             <DropFileHere>
               <H3container2> Adcione aqui o arquivo do seu desenho! </H3container2>
-              <Image type="file" 
+              <Image 
+                type="file" 
                 accept="video/*" 
                 alt="drop"  
-                onChange={(e)=> setVideo(e.target.value)} 
-                value={video} 
+                onChange={(e)=> setVideo(e.target.files[0])} 
+                
               />
               <TextContainer4  placeholder="Adcione o video aqui" />
             </DropFileHere>

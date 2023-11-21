@@ -6,13 +6,11 @@ import { DivButton, DivButtonMenu, DivLogo, HeaderContainer, ImgLogo, ImgMenu, I
 import { Children, useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
-import ModalPesquisa from "../../components/ModalPesquisa/ModalPesquisa"
 
 
 
 function Header() {
   const [openModalPerfil, setOpenModalPerfil] = useState(false)
-  const [openModalPesquisa, setOpenModalPesquisa] = useState(false)
 
   const navigate = useNavigate()
 
@@ -25,69 +23,7 @@ function Header() {
       </DivButtonMenu>
       <ModalPerfil isOpen={openModalPerfil}
         setModalPerfilOpen={() => setOpenModalPerfil(!openModalPerfil)}>
-        {/* <ParteCima>
-
-          <FotoEditarPerfil src={FotoPerfil3} alt="Perfil" />
-          <Descricao>
-            <NomeUsuario>Angela Koch</NomeUsuario>
-            <Profissao>Professora de Educação Infantil</Profissao>
-          </Descricao>
-        </ParteCima>
-
-        <ParteMeio>
-          <Edicao>
-
-            <Favoritos>
-              <FavoritosEstatico>
-                Favoritos
-              </FavoritosEstatico>
-              <FavoritosFuncional>
-                <a onClick={() => navigate('/favoritos')}>
-                  <Favoritado src={Bandeira} alt="Bandeira" />
-                </a>
-              </FavoritosFuncional>
-            </Favoritos>
-
-            <Nome>
-              <NomeEstatico>
-                Nome
-              </NomeEstatico>
-              <NomeFuncional placeholder="Angela Koch" />
-            </Nome>
-            <EmailEditar>
-              <EmailEstatico>
-                Email
-              </EmailEstatico>
-              <EmailFuncional placeholder="justoritter@gmail.com" />
-
-            </EmailEditar>
-
-            <Categoria>
-              <CategoriaEstatico>
-                Categoria
-              </CategoriaEstatico>
-              <CategoriaFuncional placeholder="Professora" />
-            </Categoria>
-          </Edicao>
-        </ParteMeio>
-
-        <Link to='/criarpostagem'>
-            <CriarPostagem>
-            <CriarPostagemEstatico >
-                Criar Postagem
-            </CriarPostagemEstatico>
-            </CriarPostagem>
-          </Link>
-
-          <Link to='/visualizarpublicacoes'>
-            <VerPostagem>
-            <VerPostagemEstatico >
-                Visualizar minhas publicações
-            </VerPostagemEstatico>
-            </VerPostagem>
-          </Link> */}
-
-
+      
       </ModalPerfil>
 
       <DivLogo>
@@ -104,11 +40,6 @@ function Header() {
         onClick={() => navigate('/videos')} 
         alt="Pesquisa" 
         />
-        {/* <ModalPesquisa
-        //  isOpen={openModalPesquisa}
-        // setModalPesquisaOpen={() => setOpenModalPesquisa(!openModalPesquisa)}
-        >
-        </ModalPesquisa> */}
  
       </DivButton>
     </HeaderContainer>

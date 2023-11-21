@@ -36,16 +36,7 @@ function Modal({ isOpen, setModalOpen }) {
     console.log(response.data.data[0])
     alert("Usuário criado com sucesso!");
     goToHome()
-  //   try {
-  //     // console.log(data);
-  //     await api.post("user/create", data);
-  //     console.log("Usuário criado com sucesso!");
 
-  //     goToHome()
-  //   } catch (Error) {
-  //     console.error("Erro ao fazer cadastro:", Error);
-  //     setError("Credenciais inválidas. Verifique seu email e senha.");
-  //   }
   };
 
 

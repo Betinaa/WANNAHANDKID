@@ -58,9 +58,23 @@ export const ParteCima = styled.div`
     margin-top: 12vh;
     margin-left: 5vh;
 `
-export const NomeUsuario = styled.h3`
+export const NomeUsuario = styled.input`
     align-items: center;
     justify-content: center;
+    display: flex;
+    border-style: none;
+    background-color: transparent;
+    font-family: 'Archivo Black', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    color: #000000; 
+    ::placeholder {
+        
+    }
+    &:focus { 
+        outline: 0;
+    }
 `
 
 export const Profissao = styled.h5`

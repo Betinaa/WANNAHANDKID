@@ -91,8 +91,8 @@ export const DivCard = styled.div`
     background-color: #E9E9DF;
     
     border-radius: 60px;
-    width: 20vw;
-    height: 65vh;
+    width: 19vw;
+    height: 63vh;
     margin-right: 23vh;
     z-index: 1;
     position: relative;
@@ -154,8 +154,8 @@ export const Button = styled.button`
     font-size: 11px;
 `
 export const ImgMeninaFrente = styled.img`
-    width: 17vw;
-    height: 45vh;
+    width: 16vw;
+    height: 43vh;
     border-radius: 39px;
     margin-left: 7%;
     margin-top: 7%;
