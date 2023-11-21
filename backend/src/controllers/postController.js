@@ -16,9 +16,7 @@ console.log('base64_decode :', base64_decode);
 }
 
 async function listPosts(request, response) {
-    const query = 'SELECT p.*, (SELECT count(r.post_id) FROM reactions r WHERE r.post_id = p.id ) as likes, ' + 
-    ' (SELECT count(c.post_id) FROM comments c WHERE c.post_id = p.id ) as comments ' +
-    ' FROM posts p ' +  ' GROUP BY p.id ORDER BY p.id DESC';
+    const query = 'SELECT * FROM posts';
 
     connection.query(query, (err, results) => {        
         if (results) {
@@ -48,7 +46,7 @@ async function storePost(request, response) {
         request.body.tema,  
         request.body.legenda,
         request.body.criador,
-        request.body.video,
+        request.file.filename,
         request.body.user_id          
     );
     
