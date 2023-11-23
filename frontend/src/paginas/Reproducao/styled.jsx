@@ -16,7 +16,7 @@ export const Video = styled.img`
 
 export const DivCard = styled.div`
    width: 26vw;
-   height: 88vh;
+   height: 100vh;
    border-radius: 60px 60px 0px 0px;
    background-color: #F1F1EA;
    display: flex;
@@ -25,7 +25,7 @@ export const DivCard = styled.div`
    bottom: 0;
 `
 
-export const DivVideo = styled.div`
+export const DivVideo = styled.video`
    width: 50vw;
    height: 60vh;
    border-radius: 30px;
@@ -82,6 +82,7 @@ export const H3Card = styled.h3`
    margin-left: 2vw;
    line-height: 3.5vh;
    letter-spacing: -0.48px;
+   margin-top: 6vh;
 `
 export const H4Criador = styled.h4`
    width: 18vw;
@@ -134,7 +135,10 @@ export const DivTitulo = styled.div`
 `
 
 export const DivComentario1 = styled.div`
+   margin-top: 4vh;
    display: flex;
+   flex-direction: column; 
+   margin-left: 5vw;
 `
 
 export const DivParaComentar = styled.div`
@@ -157,7 +161,7 @@ export const DivComentario = styled.div`
    font-weight: 500;
    opacity: 40%;
    width: 16vw;
-   margin-top: 2vh;
+   margin-top: 3vh;
 `
 
 export const FotoPerfil= styled.img`
@@ -202,9 +206,7 @@ export const DivRightComent = styled.div`
 
 `
 
-export const DivComentario2 = styled.div`
-     display: flex;
-`
+
 
 export const FotoDePerfil= styled.img`
     width: 3vw;

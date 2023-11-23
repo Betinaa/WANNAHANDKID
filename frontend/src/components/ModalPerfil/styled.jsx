@@ -189,13 +189,16 @@ export const NomeEstatico = styled.h5`
 `
 
 export const NomeFuncional = styled.input`
-    margin-left: 17vw;
+    margin-left: 20vw;
     display: flex;
     border-style: none;
     font-family: 'Nunito', sans-serif;
     font-style: normal;
     font-weight: 500;
     font-size: 12px;
+    justify-content: right; 
+    align-items: right; 
+    width: 5vw;
     ::placeholder {
         
     }
@@ -256,10 +259,9 @@ export const EmailFuncional = styled.input`
     font-style: normal;
     font-weight: 500;
     font-size: 12px;
-    ::placeholder {
-        
-    }
-    margin-left: 13vw;
+    width: 9vw;
+
+    margin-left: 16vw;
     &:focus { 
         outline: 0;
     }
@@ -335,7 +337,20 @@ export const VerPostagem = styled.h5`
 `
 
 export const FotoEditarPerfil = styled.img`
-    width: 6vw;
-    height: 11.6vh;
+    width: 7vw;
+    height: 12vh;
     border-radius: 50%;
+`
+export const ImagemCriarPostagem = styled.img`
+    width: 2vw;
+    height: 5vh;
+    margin-top: 11vh;
+    margin-left: 16vw;
+`
+
+export const ImagemVisu = styled.img`
+    width: 5vw;
+    height: 7.3vh;
+    margin-top: 2vh;
+    margin-left: 9vw;
 `

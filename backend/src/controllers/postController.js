@@ -74,8 +74,35 @@ async function storePost(request, response) {
     })
 }
 
+async function listPostsUser(request, response) {
+    const query = 'SELECT * FROM posts';
+
+    connection.query(query, (err, results) => {        
+        if (results) {
+            response
+                .status(200)
+                .json({
+                    success: true,
+                    message: `Sucesso! Lista de posts.`,
+                    data: results
+                });
+        } else {
+            response
+                .status(400)
+                .json({
+                    success: false,
+                    message: `Não foi possível realizar a remoção. Verifique os dados informados`,
+                    query: err.sql,
+                    sqlMessage: err.sqlMessage
+                });
+        }
+    })
+}
+
+
 
 module.exports = {
     listPosts,
-    storePost
+    storePost,
+    listPostsUser
 }

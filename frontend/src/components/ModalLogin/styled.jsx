@@ -41,7 +41,7 @@ export const ImgLogo = styled.img`
     transform: rotate(363deg);
     display: flex;
     margin-top: 3.2vh;
-    margin-left: 48.1vw;
+    margin-left: 49vw;
     margin-right: 50vw;
     align-items: center; 
     justify-content: center;
@@ -112,4 +112,17 @@ export const Button2 = styled.button`
     font-size: 11px;
     margin-left: 8vw;
     margin-top: 3vh;
+`
+
+export const ImgEntrada = styled.img`
+    cursor: pointer;
+    width: 5vw;
+    height: 6vh;
+    transform: rotate(363deg);
+    display: flex;
+    margin-top: 3vh;
+    margin-left: 49vw;
+    margin-right: 50vw;
+    align-items: center; 
+    justify-content: center;
 `

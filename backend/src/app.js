@@ -12,6 +12,7 @@ const loginRouter = require('./routes/loginRouter');
 const postRouter = require('./routes/postsRouter');
 const commentRouter   = require('./routes/commentsRouter');
 const reactionsRouter = require('./routes/reactionsRouter');
+const reproducaoRouter = require('./routes/reproducaoRouter');
 
 
 // Instanciar o express na variável app
@@ -34,7 +35,8 @@ app.use('/api/', userRouter);
 app.use('/api/auth', loginRouter);
 app.use('/api/post', postRouter);
 app.use('/api/comment', commentRouter);
-app.use('/api/reacttions', reactionsRouter);
+app.use('/api/reactions', reactionsRouter);
+app.use('/api/reproducao', reproducaoRouter);
 
 
 module.exports = app;

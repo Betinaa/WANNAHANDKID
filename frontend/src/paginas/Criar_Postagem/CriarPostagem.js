@@ -1,8 +1,8 @@
 import Header from "../../components/Header/Header";
 import { useNavigate } from "react-router-dom";
-import { BackArrow, Card1, Card3, Card2, Card4, CardContainer, H3container1, H1conteiner2, CenterDiv, DropFileHere, LeftDiv, MainContent, PageWrapper, RightDiv, Image, TextContainer1, TextContainer2, TextContainer4, FotoEditarPerfil, TituloH2, CardContainer2, Criacaodopost, H3container2, Finalizacao, ButtonCriar } from "./styled";
+import { Card1, Card3, Card2, Card4, CardContainer, H3container1, H1conteiner2, CenterDiv, DropFileHere, LeftDiv, MainContent, PageWrapper, RightDiv, Image, TextContainer1, TextContainer2, TextContainer4, FotoEditarPerfil, TituloH2, CardContainer2, Criacaodopost, H3container2, Finalizacao, ButtonCriar, Voltar } from "./styled";
 import { useEffect } from "react";
-import FotoPerfil3 from "../../assets/FotoPerfil3.jpg"
+import fidodido2 from "../../assets/fidodido2.jpg"
 import dropfileshere from "../../assets/dropfileshere.png"
 import { useState } from 'react';
 import axios from "axios";
@@ -10,11 +10,6 @@ import { api } from "../../services/api";
 
 function CriarPostagem() {
   const navigate = useNavigate()
-
-  const goToPost = () => {
-    navigate('/post')
-  }
-
   const [titulo, setTitulo] = useState("");
   const [legenda, setLegenda] = useState("");
   const [tema, setTema] = useState("");
@@ -22,6 +17,13 @@ function CriarPostagem() {
   const [video, setVideo] = useState("");
   const id = localStorage.getItem("id")
   const [preview, setPreview] = useState("");
+
+    const goToVisualizar = () => {
+
+        navigate("/visualizarpublicacao");
+    
+        window.location.reload();
+    };
 
   const [videoFile, setVideoFile] = useState(null);
 
@@ -56,6 +58,7 @@ function CriarPostagem() {
       .then(function (response) {
         alert("deu certomeu")
         console.log(response)
+        goToVisualizar()
       })
       .catch(function (error) {
         alert("deu errado")
@@ -72,11 +75,10 @@ function CriarPostagem() {
 
         <MainContent>
           <LeftDiv>
-            <BackArrow>&#8592;</BackArrow>
           </LeftDiv>
 
           <CenterDiv>
-            <FotoEditarPerfil src={FotoPerfil3} alt="Perfil" />
+            <FotoEditarPerfil src={fidodido2} alt="Perfil" />
           </CenterDiv>
 
           <RightDiv>

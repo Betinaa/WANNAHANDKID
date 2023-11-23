@@ -1,12 +1,13 @@
-import { DivContainer, DivCard, ButtonFundo, FotoEditarPerfil, ParteCima, NomeUsuario, Profissao, ParteMeio, Descricao, Edicao, Favoritos, EmailEditar, Categoria, Nome, FavoritosEstatico, FavoritosFuncional, Favoritado, NomeEstatico, NomeFuncional, CategoriaEstatico, CategoriaFuncional, EmailEstatico,   EmailFuncional, CriarPostagemEstatico, CriarPostagem, PesquisaEscrever, VerPostagemEstatico, VerPostagem } from './styled';
-import FotoPerfil3 from "../../assets/FotoPerfil3.jpg"
+import { DivContainer, DivCard, ButtonFundo, FotoEditarPerfil, ParteCima, NomeUsuario, Profissao, ParteMeio, Descricao, Edicao, Favoritos, EmailEditar, Categoria, Nome, FavoritosEstatico, FavoritosFuncional, Favoritado, NomeEstatico, NomeFuncional, CategoriaEstatico, CategoriaFuncional, EmailEstatico,   EmailFuncional, CriarPostagemEstatico, CriarPostagem, VerPostagemEstatico, VerPostagem, ImagemCriarPostagem, ImagemVisu } from './styled';
+import fidodido2 from "../../assets/fidodido2.jpg"
 import Bandeira from "../../assets/bandeira.png"
 import { Link } from 'react-router-dom';
 import { useNavigate } from "react-router-dom";
 import { useState } from 'react';
 import { api } from '../../services/api';
 import { useEffect } from "react";
-
+import criarpostagem from "../../assets/criarpostagem.png"
+import visualizarpubli from "../../assets/visualizarpubli.png"
 
 function ModalPerfil({isOpen, setModalPerfilOpen}) {
 
@@ -42,7 +43,7 @@ function ModalPerfil({isOpen, setModalPerfilOpen}) {
                <DivCard> 
                         <ParteCima>
 
-                            <FotoEditarPerfil src={FotoPerfil3} alt="Perfil" />
+                            <FotoEditarPerfil src={fidodido2} alt="Perfil" />
                             <Descricao>
                                 <NomeUsuario defaultValue={userData.name}>
                                     
@@ -97,6 +98,7 @@ function ModalPerfil({isOpen, setModalPerfilOpen}) {
                                 <CriarPostagemEstatico >
                                     Criar Postagem
                                 </CriarPostagemEstatico>
+                                <ImagemCriarPostagem src={criarpostagem} alt="icone"/>
                             </CriarPostagem>
                         </Link>
 
@@ -105,6 +107,7 @@ function ModalPerfil({isOpen, setModalPerfilOpen}) {
                                 <VerPostagemEstatico >
                                     Visualizar minhas publicações
                                 </VerPostagemEstatico>
+                                <ImagemVisu src={visualizarpubli} alt="icone"/>
                             </VerPostagem>
                         </Link>
                 <ButtonFundo onClick={setModalPerfilOpen} />

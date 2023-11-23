@@ -5,6 +5,7 @@ import styled from "styled-components";
 export const BodyContainer = styled.body`
     display: flex;
     flex-direction: column;
+
 `
 
 export const H1Container = styled.h1`
@@ -53,7 +54,7 @@ export const H5Container2 = styled.h5`
 export const H5Container3 = styled.h5`
     align-items: left; /* Centraliza verticalmente */
     justify-content: left; /* Centraliza horizontalmente */
-    margin-left: 4.6vh;
+    margin-left: 4.8vh;
     margin-top: 1vh;
     width: 30vw;
     font-family: 'Nunito', sans-serif;
@@ -90,9 +91,9 @@ export const DivCard = styled.div`
     justify-items: center;
     background-color: #E9E9DF;
     
-    border-radius: 60px;
-    width: 19vw;
-    height: 63vh;
+    border-radius: 56px;
+    width: 18vw;
+    height: 61vh;
     margin-right: 23vh;
     z-index: 1;
     position: relative;
@@ -102,7 +103,7 @@ export const DivCard = styled.div`
 export const SectionContainer = styled.section`
     display: flex;
     flex-direction: row;
-    margin-top: 11vh;
+    margin-top: 9vh;
 `
 
 export const CaixaEmailContainer = styled.input`
@@ -154,10 +155,10 @@ export const Button = styled.button`
     font-size: 11px;
 `
 export const ImgMeninaFrente = styled.img`
-    width: 16vw;
-    height: 43vh;
+    width: 15vw;
+    height: 40vh;
     border-radius: 39px;
-    margin-left: 7%;
+    margin-left: 1.5vw;
     margin-top: 7%;
     justify-content: center;
 `
@@ -347,7 +348,6 @@ export const H6Container3 = styled.h6`
 `
 
 export const SectionSujestoes = styled.section`
-    margin-top: 7vh;
     column-gap: 10px;
     column-count: 4;
     margin-left: 10vw;
@@ -356,9 +356,10 @@ export const SectionSujestoes = styled.section`
 `
 
 export const H6Sujestoes = styled.h6`
-    font-size: 22px;
-    margin-top:11vh;
+    font-size: 20px;
+    margin-top: 3vh;
     margin-left:6vw;
+    margin-bottom: 2vh;
     
 `
 

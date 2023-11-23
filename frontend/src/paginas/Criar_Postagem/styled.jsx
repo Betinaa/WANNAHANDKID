@@ -20,6 +20,7 @@ export const Criacaodopost = styled.div`
 export const MainContent = styled.div`
   display: flex;
   width: 100%;
+  margin-top: 5vh;
 `
 
 export const LeftDiv = styled.div`
@@ -240,7 +241,7 @@ export const TextContainer2 = styled.input`
 export const TituloH2 = styled.h2`
     display: flex;
     flex-direction: row;
-    align-items: center; /* Centraliza verticalmente */
+    align-items: left; /* Centraliza verticalmente */
     justify-content: left; /* Centraliza horizontalmente */
     background-color: #FFFFFF;
     margin-left: 2vh;
@@ -312,4 +313,9 @@ export const ButtonCriar = styled.button`
     width: 50vw;
     border: none;
     font-size: 15px;
+`
+
+export const Voltar = styled.img`
+  
+  
 `

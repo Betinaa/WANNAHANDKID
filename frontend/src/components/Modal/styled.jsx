@@ -41,7 +41,7 @@ export const ImgLogo = styled.img`
     transform: rotate(363deg);
     display: flex;
     margin-top: 3.2vh;
-    margin-left: 48.1vw;
+    margin-left: 49vw;
     margin-right: 50vw;
     align-items: center; 
     justify-content: center;
